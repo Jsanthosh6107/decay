@@ -1,12 +1,9 @@
 "use client"
 
 import { useState } from "react"
+import DecayController from "@/components/global/DecayController"
 
-export default function EnterGate({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function EnterGate({ children }: { children: React.ReactNode }) {
   const [entered, setEntered] = useState(false)
 
   if (!entered) {
@@ -23,5 +20,10 @@ export default function EnterGate({
     )
   }
 
-  return <>{children}</>
+  return (
+    <>
+      <DecayController />
+      {children}
+    </>
+  )
 }

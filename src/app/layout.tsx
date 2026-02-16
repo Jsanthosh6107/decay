@@ -1,5 +1,4 @@
 import "./globals.css"
-import DecayHUD from "@/components/DecayHUD"
 import { Quicksand, Poppins } from "next/font/google"
 
 const quicksand = Quicksand({
@@ -19,7 +18,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
         <body className={`${quicksand.variable} ${poppins.variable} antialiased`}>
         {children}
-        <DecayHUD />
       </body>
     </html>
   )

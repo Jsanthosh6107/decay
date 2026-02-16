@@ -1,5 +1,3 @@
-import EnterGate from "@/components/global/EnterGate"
-
 import Homeostasis from "@/components/sections/Homeostasis"
 import Exposure from "@/components/sections/Exposure"
 import Prodrome from "@/components/sections/Prodrome"
@@ -11,7 +9,6 @@ import Death from "@/components/sections/Death"
 
 export default function Page() {
   return (
-    <EnterGate>
       <main className="relative">
         <Homeostasis />
         <Exposure />
@@ -22,6 +19,5 @@ export default function Page() {
         <Manifest />
         <Death />
       </main>
-    </EnterGate>
   )
 }

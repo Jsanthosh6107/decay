@@ -69,7 +69,7 @@ export default function HeroRadiation({
 
       let lastFrameTimeMs = performance.now()
       let spawnAccumulator = 0
-      const spawnRatePerSecond = 1
+      const spawnRatePerSecond = 5
 
       lastFrameTimeMs = performance.now()
       spawnAccumulator = 0
@@ -86,27 +86,27 @@ export default function HeroRadiation({
             return { x: offsetLeft, y: offsetTop + Math.random() * innerHeight, sideEdge: 3 }
         }
       }
+      
+    function clamp(v: number, lo: number, hi: number) {
+      return Math.max(lo, Math.min(hi, v))
+    }
 
-      function calculateTrajectory(sideEdge: number): { x: number; y: number } {
-        const baseAngles = [-Math.PI / 2, 0, Math.PI]
-        const baseAngle = sideEdge === 3 ? baseAngles[2] : baseAngles[sideEdge]
+    function calculateTrajectory(sideEdge: number): { x: number; y: number } {
+      const baseAngles = [-Math.PI / 2, 0, Math.PI]
+      const baseAngle = sideEdge === 3 ? baseAngles[2] : baseAngles[sideEdge]
 
-        const spread = (60 * Math.PI) / 180
-        const maxDown = (15 * Math.PI) / 180
+      const spread = (60 * Math.PI) / 180
+      const maxDown = (15 * Math.PI) / 180
 
-        let offset: number
+      let offset = (Math.random() * 2 - 1) * spread
 
-        if (sideEdge === 1) {
-          offset = -spread + Math.random() * (spread + maxDown)
-        } else if (sideEdge === 3) {
-          offset = -spread + Math.random() * (spread + maxDown)
-        } else {
-          offset = (Math.random() * 2 - 1) * spread
-        }
-
-        const angle = baseAngle + offset
-        return { x: Math.cos(angle), y: Math.sin(angle) }
+      if (sideEdge === 1 || sideEdge === 3) {
+        offset = clamp(offset, -spread, maxDown)
       }
+
+      const angle = baseAngle + offset
+      return { x: Math.cos(angle), y: Math.sin(angle) }
+    }
 
       function timeBookkeeping(now: number) {
         let deltaTime = (now - lastFrameTimeMs) / 1000

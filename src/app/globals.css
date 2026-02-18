@@ -5,6 +5,7 @@
     --color-accent: #00a166;
     --color-accent-light: #008554;
     --color-accent-deep: #004d31;
+    --color-accent-deeper: #011600;
 
     --color-text: #ffffff;
     --color-text-dark: #000000;
@@ -14,7 +15,7 @@
 
 body {
     font-family: var(--font-body), sans-serif;
-    background: var(--color-accent-deep);
+    background-color: var(--color-accent-deeper);
     color: var(--color-text);
     -webkit-font-smoothing: antialiased;
 }
@@ -32,3 +33,64 @@ h1, h2, h3, h4, h5, h6 {
   0%, 100% { transform: translateY(1%); }
   50% { transform: translateY(-1%); }
 }
+
+@property --angle {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 0turn;
+}
+
+@keyframes gradientBorder {
+  from { --angle: 0turn; }
+  to   { --angle: 1turn; }
+}
+
+.radioactive-btn {
+  will-change: background;
+  border: 5px solid transparent;
+  border-radius: 9999px;
+
+  background:
+    linear-gradient(#120020, #120020) padding-box,
+    conic-gradient(
+      from var(--angle),
+
+      /* green -> yellow */
+      #39ff14 0deg,
+      #7dff0a 30deg,
+      #cfff03 60deg,
+      #ffff00 90deg,
+
+      /* yellow -> green*/
+      #ffff00 90deg,
+      #e8ff00 120deg,
+      #b6ff06 150deg,
+      #39ff14 180deg,
+
+      /* run it back */
+      #39ff14 180deg,
+      #7dff0a 210deg,
+      #cfff03 240deg,
+      #ffff00 270deg,
+
+      #ffff00 270deg,
+      #e8ff00 300deg,
+      #b6ff06 330deg,
+      #39ff14 360deg
+    ) border-box;
+
+  animation: gradientBorder .8s linear infinite;
+
+  /* GLOW(get it? because it's Radioactive???) */
+  box-shadow:
+    0 0 10px rgba(57, 255, 20, 0.75),
+    0 0 24px rgba(57, 255, 20, 0.55),
+    0 0 36px rgba(255, 255, 0, 0.55),
+    0 0 54px rgba(255, 255, 0, 0.35),
+    inset 0 0 12px rgba(255, 255, 255, 0.18);
+}
+
+
+
+
+

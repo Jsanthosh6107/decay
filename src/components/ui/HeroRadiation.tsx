@@ -69,40 +69,33 @@ export default function HeroRadiation({
 
       let lastFrameTimeMs = performance.now()
       let spawnAccumulator = 0
-      const spawnRatePerSecond = 10
+      const spawnRatePerSecond = 100//------------------------------------------------
 
       lastFrameTimeMs = performance.now()
       spawnAccumulator = 0
 
       function randomEdgePoint(): { x: number; y: number; sideEdge: number } {
-        const side = Math.floor(Math.random() * 3)
+        const side = Math.floor(Math.random() * 4)
 
         switch (side) {
           case 0:
             return { x: offsetLeft + Math.random() * innerWidth, y: offsetTop, sideEdge: 0 }
           case 1:
             return { x: offsetLeft + innerWidth, y: offsetTop + Math.random() * innerHeight, sideEdge: 1 }
+          case 2:
+            return { x: offsetLeft + Math.random() * innerWidth, y: offsetTop + innerHeight, sideEdge: 2 }
           default:
             return { x: offsetLeft, y: offsetTop + Math.random() * innerHeight, sideEdge: 3 }
         }
       }
-      
-    function clamp(v: number, lo: number, hi: number) {
-      return Math.max(lo, Math.min(hi, v))
-    }
 
     function calculateTrajectory(sideEdge: number): { x: number; y: number } {
-      const baseAngles = [-Math.PI / 2, 0, Math.PI]
-      const baseAngle = sideEdge === 3 ? baseAngles[2] : baseAngles[sideEdge]
+      const baseAngles = [-Math.PI / 2, 0, Math.PI / 2, Math.PI]
+      const baseAngle = baseAngles[sideEdge]
 
       const spread = (60 * Math.PI) / 180
-      const maxDown = (15 * Math.PI) / 180
 
-      let offset = (Math.random() * 2 - 1) * spread
-
-      if (sideEdge === 1 || sideEdge === 3) {
-        offset = clamp(offset, -spread, maxDown)
-      }
+      const offset = (Math.random() * 2 - 1) * spread
 
       const angle = baseAngle + offset
       return { x: Math.cos(angle), y: Math.sin(angle) }
@@ -179,15 +172,15 @@ export default function HeroRadiation({
         while (spawnAccumulator >= 1) {
           const spawn = randomEdgePoint()
           const trajectory = calculateTrajectory(spawn.sideEdge)
-          const radius = 1 + Math.random() * 3.5
+          const radius = 1 + Math.random() * 5 //------------------------------------------------
 
           particleRef.current.push({
             id: particleIdRef.current++,
             x: spawn.x,
             y: spawn.y,
             trajectory,
-            speed: Math.random() * 160 + 5000,
-            excited: Math.random() < 0.04,
+            speed: Math.random() * 160 + 500, //------------------------------------------------
+            excited: Math.random() < 0.5,
             trail: [{ x: spawn.x, y: spawn.y, t: now }],
             radius,
           })
@@ -195,8 +188,8 @@ export default function HeroRadiation({
           spawnAccumulator -= 1
         }
 
-        const trailLife = 0.08
-        const maxTrailPoints = 12
+        const trailLife = 0.5 //------------------------------------------------
+        const maxTrailPoints = 20
         const step = 14
 
         for (let i = particleRef.current.length - 1; i >= 0; i--) {
@@ -235,7 +228,7 @@ export default function HeroRadiation({
           while (p.trail.length > maxTrailPoints) p.trail.shift()
 
           const radius = p.radius
-          const glowRadius = radius * 2
+          const glowRadius = radius * 2 //-----------------------------------------------
 
           if (
             p.x <= -glowRadius ||

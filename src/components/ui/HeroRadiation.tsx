@@ -69,7 +69,7 @@ export default function HeroRadiation({
 
       let lastFrameTimeMs = performance.now()
       let spawnAccumulator = 0
-      const spawnRatePerSecond = 5
+      const spawnRatePerSecond = 10
 
       lastFrameTimeMs = performance.now()
       spawnAccumulator = 0

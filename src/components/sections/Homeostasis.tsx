@@ -16,17 +16,10 @@ export default function Homeostasis() {
       >
         <HeroRadiation arenaRef={arenaRef} cardRef={cardRef} />
 
-        <div className="pointer-events-none absolute inset-0 -z-20">
-          <div className="aurora" />
-        </div>
-
-        {/* Card with true neon border (only border ring animates) */}
         <div
           ref={cardRef}
           className={`
-            neon-card relative flex flex-col items-center justify-center gap-4 p-20 rounded-lg
-            bg-[linear-gradient(rgba(104,255,126,0.08),rgba(0,77,49,0.06))]
-            backdrop-blur-xl
+            relative flex flex-col items-center justify-center gap-4 p-20 rounded-lg
           `}
         >
           <div className="flex gap-2 text-9xl font-bold text-shadow-md">

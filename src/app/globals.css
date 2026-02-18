@@ -3,6 +3,7 @@
 @theme {
     --color-accent-soft: #68ff7e;
     --color-accent: #00a166;
+    --color-accent-light: #008554;
     --color-accent-deep: #004d31;
 
     --color-text: #ffffff;
@@ -23,41 +24,6 @@ h1, h2, h3, h4, h5, h6 {
     letter-spacing: -0.02em;
 }
 
-.aurora {
-  position: absolute;
-  inset: -40%;
-  background:
-    conic-gradient(
-      from 180deg at 50% 50%,
-      rgba(0, 161, 102, 0.00),
-      rgba(0, 161, 102, 0.22),
-      rgba(104, 255, 126, 0.28),
-      rgba(0, 255, 204, 0.18),
-      rgba(104, 255, 126, 0.30),
-      rgba(0, 161, 102, 0.24),
-      rgba(0, 161, 102, 0.00)
-    );
-  filter: blur(120px) saturate(150%);
-  opacity: 0.9;
-
-  transform: translate3d(0,0,0);
-  animation: auroraSpin 6s linear infinite, auroraDrift 3s ease-in-out infinite alternate;
-  will-change: transform;
-}
-
-@keyframes auroraSpin {
-  to { transform: rotate(360deg); }
-}
-
-@keyframes auroraDrift {
-  0%   { translate: -2% -1%; scale: 1.05; }
-  100% { translate:  2%  1%; scale: 1.12; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .aurora { animation: none; }
-}
-
 .bobbing {
   animation: bobbing 3s ease-in-out infinite;
 }
@@ -66,50 +32,3 @@ h1, h2, h3, h4, h5, h6 {
   0%, 100% { transform: translateY(1%); }
   50% { transform: translateY(-1%); }
 }
-
-/* Neon border that does NOT fill the background */
-.neon-card {
-  position: relative;
-}
-
-/* Animated gradient border ring */
-.neon-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  padding: 2px;            /* border thickness */
-  border-radius: inherit;
-
-  background: linear-gradient(130deg, #00ffcc, #00ff66, #66ff00, #00ffcc);
-  background-size: 300% 300%;
-  animation: neonBorderMove 8s linear infinite;
-
-  /* show ONLY the border ring */
-  -webkit-mask:
-    linear-gradient(#000 0 0) content-box,
-    linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask:
-    linear-gradient(#000 0 0) content-box,
-    linear-gradient(#000 0 0);
-  mask-composite: exclude;
-
-  pointer-events: none;
-  z-index: 0;
-
-  /* glow is applied to the ring, not the whole card */
-  filter: drop-shadow(0 0 8px rgba(0, 255, 204, 0.8))
-          drop-shadow(0 0 18px rgba(0, 255, 204, 0.45));
-}
-
-/* Keep card content above the border */
-.neon-card > * {
-  position: relative;
-  z-index: 1;
-}
-
-@keyframes neonBorderMove {
-  0%   { background-position: 0% 50%; }
-  100% { background-position: 300% 50%; }
-}
-

@@ -1,28 +1,31 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
 
 @theme {
-    --color-accent-soft: #68ff7e;
-    --color-accent: #00a166;
-    --color-accent-light: #008554;
-    --color-accent-deep: #004d31;
-    --color-accent-deeper: #011600;
+  --color-ars-accent-soft: #68ff7e;
+  --color-ars-accent: #00a166;
+  --color-ars-accent-lighter: #22da96;
+  --color-ars-accent-light: #008554;
+  --color-ars-accent-deep: #004d31;
+  --color-ars-accent-deeper: #011600;
 
-    --color-text: #ffffff;
-    --color-text-dark: #000000;
+  --color-ars-text: #ffffff;
+  --color-ars-text-dark: #000000;
 
-    --color-highlight: #ffd700;
+  --color-ars-highlight: #ffd700;
 }
 
 body {
-    font-family: var(--font-body), sans-serif;
-    background-color: var(--color-accent-deeper);
-    color: var(--color-text);
-    -webkit-font-smoothing: antialiased;
+  font-family: var(--font-body), sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-heading), sans-serif;
-    letter-spacing: -0.02em;
+  font-family: var(--font-heading), sans-serif;
+  letter-spacing: -0.02em;
 }
 
 .bobbing {
@@ -61,7 +64,7 @@ h1, h2, h3, h4, h5, h6 {
       #cfff03 60deg,
       #ffff00 90deg,
 
-      /* yellow -> green*/
+      /* yellow -> green */
       #ffff00 90deg,
       #e8ff00 120deg,
       #b6ff06 150deg,
@@ -81,7 +84,6 @@ h1, h2, h3, h4, h5, h6 {
 
   animation: gradientBorder .8s linear infinite;
 
-  /* GLOW(get it? because it's Radioactive???) */
   box-shadow:
     0 0 10px rgba(57, 255, 20, 0.75),
     0 0 24px rgba(57, 255, 20, 0.55),
@@ -90,7 +92,112 @@ h1, h2, h3, h4, h5, h6 {
     inset 0 0 12px rgba(255, 255, 255, 0.18);
 }
 
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
 
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
 
+:root {
+  --radius: 0.625rem;
 
+  /* Main page + mac overscroll background */
+  --background: var(--color-ars-accent-light);
+  --foreground: var(--color-ars-text);
 
+  /* Surfaces */
+  --card: var(--color-ars-accent-deep);
+  --card-foreground: var(--color-ars-text);
+
+  --popover: var(--color-ars-accent-deep);
+  --popover-foreground: var(--color-ars-text);
+
+  /* Buttons / active controls */
+  --primary: var(--color-ars-accent);
+  --primary-foreground: var(--color-ars-text-dark);
+
+  /* Secondary UI (chips, subtle fills) */
+  --secondary: var(--color-ars-accent-deep);
+  --secondary-foreground: var(--color-ars-text);
+
+  /* Muted */
+  --muted: var(--color-ars-accent-deeper);
+  --muted-foreground: var(--color-ars-accent-soft);
+
+  /* Accent (hovers, highlighted rows, etc.) */
+  --accent: var(--color-ars-accent-lighter);
+  --accent-foreground: var(--color-ars-text-dark);
+
+  /* Form + borders */
+  --border: var(--color-ars-accent-deep);
+  --input: var(--color-ars-accent-deep);
+
+  /* Focus ring */
+  --ring: var(--color-ars-highlight);
+
+  /* Destructive */
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: var(--color-ars-text);
+
+  /* charts/sidebar defaults  */
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+
+  --sidebar: var(--color-ars-accent-deeper);
+  --sidebar-foreground: var(--color-ars-text);
+  --sidebar-primary: var(--color-ars-accent);
+  --sidebar-primary-foreground: var(--color-ars-text-dark);
+  --sidebar-accent: var(--color-ars-accent-deep);
+  --sidebar-accent-foreground: var(--color-ars-text);
+  --sidebar-border: var(--color-ars-accent-deep);
+  --sidebar-ring: var(--color-ars-highlight);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}

@@ -2,9 +2,9 @@ export default function Prodrome() {
   return (
     <section
       id="prodrome"
-      className="min-h-screen flex items-center justify-center"
+      className="min-h-screen flex flex-col items-center justify-center"
     >
-      <div>
+      <div className="min-h-screen flex flex-col items-center justify-center">
         <div>
           <h2>Prodrome Phase</h2>
           <h3>Delayed Reaction</h3>
@@ -12,7 +12,7 @@ export default function Prodrome() {
         </div>
       </div>
       
-      <div>
+      <div className="min-h-screen flex flex-col items-center justify-center">
         <div>
           <h2>The Vomiting</h2>
           <h3>Chemical Alarms</h3>
@@ -20,7 +20,7 @@ export default function Prodrome() {
         </div>
       </div>
 
-      <div>
+      <div className="min-h-screen flex flex-col items-center justify-center">
         <div>
           <h2>The headaches</h2>
           <h3>Inflammatory response</h3>
@@ -28,7 +28,7 @@ export default function Prodrome() {
         </div>
       </div>
 
-      <div>
+      <div className="min-h-screen flex flex-col items-center justify-center">
         <div>
           <h2>Misfiring</h2>
           <h3>No proper response</h3>

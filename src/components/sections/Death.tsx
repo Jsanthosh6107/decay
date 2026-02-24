@@ -2,10 +2,10 @@ export default function Death() {
   return (
     <section
       id="death"
-      className="min-h-screen flex items-center justify-center"
+      className="min-h-screen flex flex-col items-center justify-center"
     >
 
-      <div>
+      <div className="min-h-screen flex flex-col items-center justify-center">
         <div>
           <h2>Terminal Phase</h2>
           <h3>Support Replaces Function</h3>
@@ -13,7 +13,7 @@ export default function Death() {
         </div>
       </div>
 
-      <div>
+      <div className="min-h-screen flex flex-col items-center justify-center">
         <div>
           <h2>Shock Physiology</h2>
           <h3>Circulatory Instability</h3>
@@ -21,7 +21,7 @@ export default function Death() {
         </div>
       </div>
 
-      <div>
+      <div className="min-h-screen flex flex-col items-center justify-center">
         <div>
           <h2>Cardiac Arrest</h2>
           <h3>Neurological Decline</h3>
@@ -29,7 +29,7 @@ export default function Death() {
         </div>
       </div>
 
-      <div>
+      <div className="min-h-screen flex flex-col items-center justify-center">
         <div>
           <h2>Renal and Hepatic Failure</h2>
           <h3>Metabolic collapse</h3>
@@ -37,7 +37,7 @@ export default function Death() {
         </div>
       </div>
 
-      <div>
+      <div className="min-h-screen flex flex-col items-center justify-center">
         <div>
           <h2>Secondary Infections</h2>
           <h3>No walls left</h3>
@@ -45,7 +45,7 @@ export default function Death() {
         </div>
       </div>
 
-      <div>
+      <div className="min-h-screen flex flex-col items-center justify-center">
         <div>
           <h2>The End</h2>
           <p>With a body maintained by artificial machines, conditions continuing to decline, and the body all but destroyed, cardiac arrest is often allowed to end life.</p>

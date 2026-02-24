@@ -2,9 +2,9 @@ export default function Relapse() {
   return (
     <section
       id="relapse"
-      className="min-h-screen flex items-center justify-center"
+      className="min-h-screen flex flex-col items-center justify-center"
     >
-      <div>
+      <div className="min-h-screen flex flex-col items-center justify-center">
         <div>
           <h2>Relapse</h2>
           <h3>Running dry</h3>

@@ -2,10 +2,10 @@ export default function Latent() {
   return (
     <section
       id="latent"
-      className="min-h-screen flex items-center justify-center"
+      className="min-h-screen flex flex-col items-center justify-center"
     >
 
-      <div>
+      <div className="min-h-screen flex flex-col items-center justify-center">
         <div>
           <h2>latent</h2>
           <h3>The calm before the storm</h3>
@@ -13,7 +13,7 @@ export default function Latent() {
         </div>
       </div>
 
-      <div>
+      <div className="min-h-screen flex flex-col items-center justify-center">
         <div>
           <h2>Silent Entropy</h2>
           <h3>Depleting supplies without renewal</h3>

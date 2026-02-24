@@ -2,9 +2,9 @@ export default function Recovery() {
   return (
     <section
       id="recovery"
-      className="min-h-screen flex items-center justify-center"
+      className="min-h-screen flex flex-col items-center justify-center"
     >
-      <div>
+      <div className="min-h-screen flex flex-col items-center justify-center">
         <div>
           <h2>Recovery</h2>
           <h3>false stabilization</h3>

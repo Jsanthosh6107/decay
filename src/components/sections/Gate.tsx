@@ -1,7 +1,7 @@
 'use client'
 
 import HeroRadiation from "@/components/ui/HeroRadiation";
-import { useRef } from "react"
+import { useEffect, useRef } from "react"
 import { Radiation } from 'lucide-react';
 import Link from "next/link";
 
@@ -10,8 +10,18 @@ export default function Page() {
   const arenaRef = useRef<HTMLDivElement>(null)
   const cardRef = useRef<HTMLDivElement>(null)
 
+    useEffect(() => {
+    document.body.classList.add("bg-ars-accent-deeper")
+    document.documentElement.classList.add("bg-ars-accent-deeper")
+
+    return () => {
+      document.body.classList.remove("bg-ars-accent-deeper")
+      document.documentElement.classList.remove("bg-ars-accent-deeper")
+    }
+  }, [])
+
   return (
-    <section id="gate" className="min-h-screen flex items-center justify-center bg-accent-deeper">
+    <section id="gate" className="min-h-screen flex items-center justify-center bg-ars-accent-deeper">
       <div
         ref={arenaRef}
         className="relative h-screen w-screen flex items-center justify-center overflow-x-clip"
@@ -29,7 +39,7 @@ export default function Page() {
               radioactive-btn
               group
               px-8 py-4
-              text-accent-soft
+              text-ars-accent-soft
               flex items-center gap-4
               text-2xl font-semibold
               bg-[#120020]
@@ -39,8 +49,8 @@ export default function Page() {
               hover:cursor-pointer
             `}
           >
-            <Radiation className="w-[1.2em] h-[1.2em] transition-transform duration-500 group-hover:animate-spin group-hover:stroke-highlight" />
-            <span className="group-hover:text-highlight">Begin ARS</span>
+            <Radiation className="w-[1.2em] h-[1.2em] transition-transform duration-500 group-hover:animate-spin group-hover:stroke-ars-highlight" />
+            <span className="group-hover:text-ars-highlight">Begin ARS</span>
           </Link>
         </div>
       </div>

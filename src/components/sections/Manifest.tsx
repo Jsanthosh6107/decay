@@ -2,9 +2,9 @@ export default function Manifest() {
   return (
     <section
       id="manifest"
-      className="min-h-screen flex items-center justify-center"
+      className="min-h-screen flex flex-col items-center justify-center"
     >
-      <div>
+      <div className="min-h-screen flex flex-col items-center justify-center">
         <div>
           <h2>Manifest</h2>
           <h3>The start of the end</h3>
@@ -12,7 +12,7 @@ export default function Manifest() {
         </div>
       </div>
 
-      <div>
+      <div className="min-h-screen flex flex-col items-center justify-center">
         <div>
           <h2>Hematopoietic</h2>
           <h3>Stem Cell Failure</h3>
@@ -20,7 +20,7 @@ export default function Manifest() {
         </div>
       </div>
 
-      <div>
+      <div className="min-h-screen flex flex-col items-center justify-center">
         <div>
           <h2>Gastrointestinal</h2>
           <h3>Barrier loss</h3>
@@ -28,7 +28,7 @@ export default function Manifest() {
         </div>
       </div>
 
-      <div>
+      <div className="min-h-screen flex flex-col items-center justify-center">
         <div>
           <h2>Cutaneous</h2>
           <h3>Skin loss</h3>
@@ -36,7 +36,7 @@ export default function Manifest() {
         </div>
       </div>
 
-      <div>
+      <div className="min-h-screen flex flex-col items-center justify-center">
         <div>
           <h2>Respiratory</h2>
           <h3>Oxygen depletion</h3>
@@ -44,7 +44,7 @@ export default function Manifest() {
         </div>
       </div>
 
-      <div>
+      <div className="min-h-screen flex flex-col items-center justify-center">
         <div>
           <h2>Muscle breakdown</h2>
           <h3>fall to collapse</h3>

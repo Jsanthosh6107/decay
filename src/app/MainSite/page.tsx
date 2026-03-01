@@ -12,7 +12,7 @@ export default function page() {
   return (
     <>
         <ScrollDebug />
-      <main className="relative">
+      <main className="relative overflow-x-hidden">
         <Homeostasis />
         <Exposure />
         <Prodrome />

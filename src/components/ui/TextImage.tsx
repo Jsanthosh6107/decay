@@ -10,7 +10,7 @@ export function TextImage({
   return (
     <div
       className={cn(
-        "flex flex-row items-center gap-8 p-20",
+        "flex flex-row items-center p-40",
         className
       )}
       {...props}

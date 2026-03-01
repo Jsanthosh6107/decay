@@ -1,5 +1,5 @@
 import AtomLogo from "../icons/AtomLogo";
-import { H1, H2, H3, P, TypographyLead } from "@/components/ui"
+import { H1, H2, H3, P, TypographyLead, Highlight } from "@/components/ui"
 import { TextImage } from "@/components/ui";
 import { Scale } from "lucide-react";
 
@@ -29,9 +29,11 @@ export default function Homeostasis() {
       {/* Text and image side by side */}
       <TextImage>
         <div className="w-[75%]">
-          <H2 >Homeostasis</H2>
-          <H3>A stable condition</H3>
-          <P>Every healthy human exists in a narrow range. Small infections are dealt with swiftly. Old cells die. New cells replace them. Your internal environment is not stable because nothing goes wrong. It&apos;s because damaged or worn out parts are constantly replaced</P>
+          <div className="w-[80%]">
+            <H2>Homeostasis</H2>
+            <H3>A <Highlight>stable</Highlight> condition</H3>
+            <P>Every healthy human exists in a narrow range. Small infections are dealt with swiftly. Old cells die. New cells replace them. Your internal environment is not stable because nothing goes wrong. It&apos;s because damaged or worn out parts are constantly replaced</P>
+          </div>
         </div>
         <div className="w-[25%]">
           <Scale className="h-full w-full" />

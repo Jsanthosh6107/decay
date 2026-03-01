@@ -25,7 +25,7 @@ export default function Exposure() {
         </div>
       </div>
 
-      {/*  */}
+      {/*  animated text image visual of dna broken? */}
       <div className="min-h-screen flex flex-col items-center justify-center">
         <div>
           <H2>What actually happened</H2>

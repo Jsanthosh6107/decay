@@ -26,6 +26,7 @@ export default function Homeostasis() {
         </div>
       </div>
 
+      {/* Text and image side by side */}
       <TextImage>
         <div className="w-[75%]">
           <H2 >Homeostasis</H2>

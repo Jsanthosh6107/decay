@@ -10,7 +10,7 @@ export function H1({
   return (
     <h1
       className={cn(
-        "scroll-m-20 text-center font-extrabold tracking-tight text-balance",
+        "scroll-m-20 text-center font-extrabold tracking-tight text-balance text-shadow-(--text-shadow-ars-green)",
         className
       )}
       {...props}
@@ -25,7 +25,8 @@ export function H2({
   return (
     <h2
       className={cn(
-        "scroll-m-20 border-b pb-2 mb-2 text-6xl font-semibold tracking-tight first:mt-0 uppercase",
+        "scroll-m-20 pb-3 mb-4 text-6xl font-semibold tracking-tight first:mt-0 uppercase text-shadow-ars-green relative",
+        "after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-full after:bg-white",
         className
       )}
       {...props}
@@ -39,7 +40,7 @@ export function H3({
 }: WithClassName<React.HTMLAttributes<HTMLHeadingElement>>) {
   return (
     <h3
-      className={cn("scroll-m-20 text-3xl font-semibold tracking-tight italic", className)}
+      className={cn("scroll-m-20 text-3xl font-bold tracking-tight text-shadow-ars", className)}
       {...props}
     />
   )
@@ -63,7 +64,7 @@ export function P({
 }: WithClassName<React.HTMLAttributes<HTMLParagraphElement>>) {
   return (
     <p
-      className={cn("text-xl leading-7 not-first:mt-6", className)}
+      className={cn("text-xl leading-7 not-first:mt-6 text-shadow-2xs font-normal", className)}
       {...props}
     />
   )
@@ -107,7 +108,7 @@ export function TypographyLead({
   ...props
 }: WithClassName<React.HTMLAttributes<HTMLParagraphElement>>) {
   return (
-    <p className={cn("text-muted-foreground text-xl", className)} {...props} />
+    <p className={cn("text-muted-foreground text-xl font-semibold", className)} {...props} />
   )
 }
 
@@ -136,11 +137,26 @@ export function Highlight({
   className,
   ...props
 }: WithClassName<React.HTMLAttributes<HTMLSpanElement>>) {
-  return <span className={cn("text-ars-highlight", className)} {...props} />
+  return <span className={cn("text-ars-highlight text-shadow-yellow-shadow", className)} {...props} />
+}
+
+export function CounterButtonIncrease({
+  className,
+  ...props
+}: WithClassName<React.HTMLAttributes<HTMLDivElement>>) {
+  return (
+    <div
+      className={cn(
+        "flex text-white w-1/2 justify-center gap-2 text-xl border-[.15rem] border-ars-accent rounded-xl bg-[color-mix(in_srgb,var(--color-ars-accent)_50%,transparent)] p-[.65rem] items-center",
+        className
+      )}
+      {...props}
+    />
+  )
 }
 
 export const Typography = {
-  H1: H1,
+  H1: H1, 
   H2: H2,
   H3: H3,
   H4: H4,
@@ -153,4 +169,5 @@ export const Typography = {
   Small: TypographySmall,
   Muted: TypographyMuted,
   Highlight: Highlight,
+  CounterButtonIncrease: CounterButtonIncrease
 } as const

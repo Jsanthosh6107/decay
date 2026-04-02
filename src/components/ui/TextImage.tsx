@@ -1,16 +1,21 @@
 import * as React from "react"
 import { cn } from "@/lib/utils"
 
-type WithClassName<T> = T & { className?: string }
+type TextImageProps = React.HTMLAttributes<HTMLDivElement> & {
+  className?: string
+  invert?: boolean
+}
 
 export function TextImage({
   className,
+  invert = false,
   ...props
-}: WithClassName<React.HTMLAttributes<HTMLDivElement>>) {
+}: TextImageProps) {
   return (
     <div
       className={cn(
-        "flex flex-row items-center p-40",
+        "flex items-center p-40",
+        invert ? "flex-row-reverse text-right" : "flex-row",
         className
       )}
       {...props}

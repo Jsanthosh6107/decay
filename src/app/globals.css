@@ -5,17 +5,21 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --color-ars-accent-soft: #68ff7e;
-  --color-ars-accent: #00a166;
-  --color-ars-accent-lighter: #22da96;
-  --color-ars-accent-light: #008554;
-  --color-ars-accent-deep: #004d31;
-  --color-ars-accent-deeper: #011600;
+  --color-ars-accent-soft: rgba(104, 255, 126, 1);
+  --color-ars-accent: rgba(0, 161, 102, 1);
 
-  --color-ars-text: #ffffff;
-  --color-ars-text-dark: #000000;
+  --color-ars-accent-lighter: rgba(34, 218, 150, 1);
+  --color-ars-accent-light: rgba(0, 133, 84, 1);
 
-  --color-ars-highlight: #ffd700;
+  --color-ars-accent-deep: rgba(0, 77, 49, 1);
+  --color-ars-accent-deeper: rgba(1, 22, 0, 1);
+
+  --color-ars-text: rgba(255, 255, 255, 1);
+  --color-ars-text-dark: rgba(0, 0, 0, 1);
+
+  --color-ars-highlight: rgba(255, 215, 0, 1);
+  --text-shadow-ars-green: 0 0 2em rgba(0, 29, 0, 0.6);
+  --text-shadow-yellow-shadow: 0 0 2em rgba(225, 255, 0, 0.3);
 }
 
 body {
@@ -26,15 +30,6 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading), sans-serif;
   letter-spacing: -0.02em;
-}
-
-.bobbing {
-  animation: bobbing 3s ease-in-out infinite;
-}
-
-@keyframes bobbing {
-  0%, 100% { transform: translateY(1%); }
-  50% { transform: translateY(-1%); }
 }
 
 @property --angle {
@@ -199,5 +194,76 @@ h1, h2, h3, h4, h5, h6 {
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+.bobbing {
+  animation: bobbing 3s ease-in-out infinite;
+}
+
+@keyframes bobbing {
+  0%, 100% { transform: translateY(1%); }
+  50% { transform: translateY(-1%); }
+}
+
+.floater{
+  animation: float 15s ease-in-out infinite;
+}
+
+@keyframes float {  
+  0% {
+      transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+      transform: translateY(-10px) rotate(-5deg);
+  }
+  50% {
+      transform: translateY(-20px) rotate(5deg);
+  }
+  75% {
+      transform: translateY(-10px) rotate(-5deg);
+  }
+  100% {
+      transform: translateY(0px) rotate(0deg);
+  }
+}
+
+.floater svg {
+  animation: breathe 3s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+
+.pulse-ring {
+  background: radial-gradient(circle, rgba(34,197,94,0.25) 0%, rgba(34,197,94,0.1) 40%, transparent 70%);
+  animation: radarPulse 2.5s infinite;
+  opacity: 0.6;
+}
+
+.pulse-ring::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: inherit;
+  animation: radarPulse 2.5s infinite;
+  animation-delay: 1.2s;
+}
+
+@keyframes radarPulse {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.5;
+  }
+  70% {
+    transform: scale(1.4);
+    opacity: 0.2;
+  }
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
   }
 }

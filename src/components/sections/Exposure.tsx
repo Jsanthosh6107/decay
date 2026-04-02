@@ -12,7 +12,9 @@ export default function Exposure() {
         <div>
           <H2>Exposure</H2>
           <H3>Delayed death</H3>
-          <P>Reactor Cores, fuel processing systems, industrial radiation sources. all of these are systems designed to be safe... until they're not. Infrastructure breaks, safety fails, systems misfire, Radiation follows. Exposure doesn't need to last long, a biologically lethal dose can be delivered in seconds. Sometimes less than a second.</P>
+          <P>Less than a second. That&apos;s how long it took to receive a biologically lethal dose.</P>
+          <P>A Reactor Core failed. You were caught in radiation fallout. You were exposed to the vacuum of space.</P>
+          <P>It&apos;s already too late.</P>
         </div>
       </div>
 
@@ -21,7 +23,9 @@ export default function Exposure() {
         <div>
           <H2>How it feels</H2>
           <H3>No alarms go off</H3>
-          <P>At the moment of exposure, you may feel nothing at all. No pain, no heat, no visible injury. You may see the source of radiation, the flash, maybe an alarm. physically though? you feel fine.</P>
+          <P>At the moment of exposure, you may feel nothing at all.</P>
+          <P>No pain, no heat, no visible injury. You may see the source of radiation, the flash, maybe an alarm.</P>
+          <P>Physically though? you feel fine.</P>
         </div>
       </div>
 
@@ -30,7 +34,9 @@ export default function Exposure() {
         <div>
           <H2>What actually happened</H2>
           <H3>Loss of replacement</H3>
-          <P>As radiation passes through your body, it breaks DNA strands, genetic material, and chromosomes. affected cells try to continue on, but when they try to divide, the blueprints are corrupted.</P>
+          <P>The damage is already done. In that brief exposure. Radiation flew through your body and hit your DNA. </P>
+          <P>Like deleting the source code, the body loses it&apos;s own blueprints.</P>
+          <P>And this is far worse than a burn or injury</P>
         </div>
       </div>
       

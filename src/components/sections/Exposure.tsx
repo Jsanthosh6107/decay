@@ -7,7 +7,7 @@ export default function Exposure() {
       className="min-h-screen flex flex-col items-center justify-center"
     >
 
-      {/* animated text image visual of radiation? */}
+      {/* image text likely */}
       <div className="min-h-screen flex flex-col items-center justify-center">
         <div>
           <H2>Exposure</H2>
@@ -18,7 +18,7 @@ export default function Exposure() {
         </div>
       </div>
 
-      {/* animated text image visual of the demon core? */}
+      {/* image text likely */}
       <div className="min-h-screen flex flex-col items-center justify-center">
         <div>
           <H2>How it feels</H2>
@@ -29,7 +29,7 @@ export default function Exposure() {
         </div>
       </div>
 
-      {/*  animated text image visual of dna broken? */}
+      {/* another... image text likely */}
       <div className="min-h-screen flex flex-col items-center justify-center">
         <div>
           <H2>What actually happened</H2>

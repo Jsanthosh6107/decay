@@ -1,3 +1,4 @@
+/* IMPORTS */
 import AtomLogo from "../icons/AtomLogo";
 import {
   H1,
@@ -25,6 +26,8 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import Carousel, { CarouselItem } from "@/components/ui/EmblaCarousel";
+
+/* ORGAN SYSTEM(carousel) */
 
 type OrganSystem = {
   name: string;
@@ -73,6 +76,8 @@ const organSystems: OrganSystem[] = [
   },
 ];
 
+/* Counter */
+
 type HomeostasisStat = {
   icon: LucideIcon;
   iconClassName: string;
@@ -104,11 +109,15 @@ const stats: HomeostasisStat[] = [
   },
 ];
 
+/* glow classes from some codepen */
+
 const sectionClassName = "relative w-screen overflow-x-clip";
 const glowTopSoftClassName =
   "pointer-events-none absolute inset-x-0 top-0 bg-gradient-to-b from-ars-accent-soft/25 to-transparent";
 const glowTopHighlightClassName =
   "pointer-events-none absolute inset-x-0 top-0 bg-gradient-to-b from-ars-highlight/20 to-transparent";
+
+/* this is going to get moved to a different file eventually. for later. when i destroy the site. */
 
 type OrganSystemCardProps = {
   system: OrganSystem;
@@ -150,10 +159,27 @@ function OrganSystemCard({ system }: OrganSystemCardProps) {
   );
 }
 
+
+
+
+
+
+
+
+/* welcome to the void */
+
+
+
+
+
+
+
+
 export default function Homeostasis() {
   return (
     <section id="homeostasis" className={sectionClassName}>
 
+    {/* This is the hero. Could have put it in a different file. Just lazy */}
       <div className="relative min-h-screen w-full overflow-hidden">
         <div className="pointer-events-none absolute inset-x-0 top-0 h-56 bg-linear-to-b from-ars-accent-soft/20 to-transparent" />
 
@@ -180,6 +206,8 @@ export default function Homeostasis() {
           </SectionPanel>
         </div>
       </div>
+
+    {/* Section one of this page. image text */}
 
       <SectionFeatureSplit
         eyebrow="Homeostasis"
@@ -210,6 +238,8 @@ export default function Homeostasis() {
         </div>
       </SectionFeatureSplit>
 
+      {/* Section two of this page. image text*/}
+
       <SectionFeatureSplit
         eyebrow="Organ systems"
         title={
@@ -226,6 +256,8 @@ export default function Homeostasis() {
         invert
         glowClassName={`${glowTopHighlightClassName} h-20`}
       />
+
+    {/* The carousel. will be shown again, later */}
 
       <SectionScreen className="py-16">
         <div className="mx-auto flex w-full max-w-7xl flex-col gap-6 px-4 sm:px-8 lg:px-16">
@@ -246,6 +278,8 @@ export default function Homeostasis() {
           </Carousel>
         </div>
       </SectionScreen>
+
+      {/* only section that's understandable syntax wise */}
 
       <SectionScreen className="px-4 py-16 sm:px-8 lg:px-16">
         <div className="mx-auto w-full max-w-4xl">

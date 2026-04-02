@@ -35,14 +35,14 @@ type Particle = {
 const DEFAULT_OPTIONS: Options = {
   num: 28,
   particle: {
-    color: 'rgba(110,255,160,0.22)',
+    color: 'rgba(110,255,160,0.52)',
     szMin: 0.6,
     szMax: 1.4,
     spMin: 0.03,
     spMax: 0.12,
   },
   link: {
-    color: 'rgba(120,255,170,0.10)',
+    color: 'rgba(120,255,170,0.30)',
     maxDist: 120,
   },
   overlay: {

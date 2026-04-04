@@ -25,8 +25,7 @@ export function H2({
   return (
     <h2
       className={cn(
-        "scroll-m-20 pb-3 mb-4 text-6xl font-semibold tracking-tight first:mt-0 uppercase text-shadow-ars-green relative",
-        "after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-full after:bg-white",
+        "scroll-m-20 mb-4 text-6xl font-semibold tracking-tight first:mt-0 uppercase text-shadow-ars-green relative",
         className
       )}
       {...props}

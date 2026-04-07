@@ -8,7 +8,7 @@ import { SectionIconDisplay } from "./SectionIconDisplay";
 type SectionFeatureSplitProps = {
   eyebrow: React.ReactNode;
   title: React.ReactNode;
-  paragraphs: string[];
+  paragraphs: React.ReactNode[];
   icon: LucideIcon;
   glowClassName: string;
   invert?: boolean;
@@ -45,7 +45,10 @@ export function SectionFeatureSplit({
             <H3 className="mt-4">{title}</H3>
 
             {paragraphs.map((paragraph, index) => (
-              <P key={`${paragraph}-${index}`} className={index === 0 ? "mt-4 text-white/90" : "mt-3 text-white/85"}>
+              <P
+                key={`feature-split-paragraph-${index}`}
+                className={index === 0 ? "mt-4 text-white/90" : "mt-3 text-white/85"}
+              >
                 {paragraph}
               </P>
             ))}

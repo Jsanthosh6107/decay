@@ -8,7 +8,7 @@ type SectionHeroSplitProps = {
   pill: React.ReactNode;
   title: React.ReactNode;
   subtitle: React.ReactNode;
-  paragraphs: Array<string | React.ReactNode>;
+  paragraphs: React.ReactNode[];
   icon: LucideIcon;
   glowClassName: string;
 };

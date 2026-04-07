@@ -14,21 +14,23 @@ const glowTopHighlightClassName =
 export default function Exposure() {
   return (
     <section id="exposure" className={sectionClassName}>
-      {/* Exposure section */}
       <SectionHeroSplit
-        pill="Irradiated"
-        title="Exposure"
+        pill={<>Exposure Phase</>}
+        title={<>You&apos;re <Highlight>Irradiated</Highlight></>}
         subtitle={
           <>
-            <Highlight>Delayed</Highlight> death
+            Delayed death
           </>
         }
         paragraphs={[
           <>
-            Less than a second. That&apos;s how long it took to receive a biologically{" "}
-            <Highlight>lethal dose</Highlight>.
+            Less than a second. That&apos;s how long it took to receive a
+            biologically <Highlight>lethal dose</Highlight>.
           </>,
-          "A reactor core failed. You were caught in radiation fallout. You were exposed to the vacuum of space.",
+          <>
+            A reactor core failed. You were caught in radiation fallout. You
+            were exposed to the vacuum of space.
+          </>,
           <>
             It&apos;s already <Highlight>too late</Highlight>.
           </>,
@@ -37,35 +39,49 @@ export default function Exposure() {
         glowClassName={`${glowTopSoftClassName} h-24`}
       />
 
-      {/* How it feels */}
       <SectionFeatureSplit
-        eyebrow="How it feels"
+        eyebrow={<>silent death</>}
         title={
           <>
-            How it <Highlight>feels</Highlight>
+            How It <Highlight>Feels</Highlight>
           </>
         }
         paragraphs={[
-          "At the moment of exposure, you may feel nothing at all.",
-          "No pain, no heat, no visible injury. You may see the source of radiation, the flash, maybe an alarm.",
-          "Physically though, you feel fine.",
+          <>
+            At the moment of exposure, you may feel{" "}
+            <Highlight>nothing</Highlight> at all.
+          </>,
+          <>
+            No pain, no heat, no visible injury. You may see the source of
+            radiation, the flash, maybe an alarm.
+          </>,
+          <>
+            Physically though, you feel <Highlight>fine</Highlight>.
+          </>,
         ]}
         icon={BellOff}
         glowClassName={`${glowTopHighlightClassName} h-20`}
       />
 
-      {/* What actually happened */}
       <SectionFeatureSplit
-        eyebrow="What actually happened"
+        eyebrow={<>Cellular Damage</>}
         title={
           <>
             What actually <Highlight>happened</Highlight>
           </>
         }
         paragraphs={[
-          "The damage is already done. In that brief exposure, radiation flew through your body and hit your DNA.",
-          "Like deleting source code, the body loses its own blueprints.",
-          "And this is far worse than a burn or injury.",
+          <>
+            The damage is already done. In that brief exposure, radiation flew
+            through your body and hit your <Highlight>DNA</Highlight>.
+          </>,
+          <>
+            Like deleting source code, the body loses its own{" "}
+            <Highlight>blueprints</Highlight>.
+          </>,
+          <>
+            And this is far worse than a burn or injury.
+          </>,
         ]}
         icon={Dna}
         invert

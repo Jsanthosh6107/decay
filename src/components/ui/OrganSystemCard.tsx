@@ -1,12 +1,14 @@
 import { type LucideIcon } from "lucide-react";
+import type { ReactNode } from "react";
 import { H4 } from "./Typography";
 import { SectionPanel } from "./SectionPrimitives";
 
 export type OrganSystem = {
-  name: string;
-  role: string;
-  maintenance: string;
-  failure: string;
+  id?: string;
+  name: ReactNode;
+  role: ReactNode;
+  maintenance: ReactNode;
+  failure: ReactNode;
   Icon: LucideIcon;
 };
 

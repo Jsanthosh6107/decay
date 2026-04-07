@@ -2,14 +2,15 @@ import { CounterButtonIncrease, Highlight } from "./Typography";
 import Counter from "./CountUp";
 import { cn } from "@/lib/utils";
 import { type LucideIcon } from "lucide-react";
+import type { ReactNode } from "react";
 
 type SectionStatCardProps = {
   icon: LucideIcon;
   iconClassName?: string;
-  label: string;
+  label: ReactNode;
   value: number;
-  suffix: string;
-  unit: string;
+  suffix: ReactNode;
+  unit: ReactNode;
   className?: string;
 };
 

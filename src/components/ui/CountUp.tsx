@@ -1,13 +1,14 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import type { ReactNode } from 'react';
 
 export default function Counter({
   value,
   suffix = '',
 }: {
   value: number;
-  suffix?: string;
+  suffix?: ReactNode;
 }) {
   const ref = useRef<HTMLSpanElement | null>(null);
   const [count, setCount] = useState(0);

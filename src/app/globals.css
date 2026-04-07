@@ -18,6 +18,8 @@
   --color-ars-text-dark: rgba(0, 0, 0, 1);
 
   --color-ars-highlight: rgba(255, 215, 0, 1);
+  --color-ars-failure: rgba(208, 38, 63, 1);
+  --color-ars-failure-deep: rgba(112, 16, 33, 1);
   --text-shadow-ars-green: 0 0 2em rgba(0, 29, 0, 0.6);
   --text-shadow-yellow-shadow: 0 0 2em rgba(225, 255, 0, 0.3);
 }

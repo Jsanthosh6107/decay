@@ -1,57 +1,162 @@
+import { Bone, Dumbbell, Pill, Shield, Skull, Wind } from "lucide-react";
+import { Highlight, SectionFeatureSplit, SectionHeroSplit } from "@/components/ui";
+
+const sectionClassName = "relative w-screen overflow-x-clip";
+const glowTopSoftClassName =
+  "pointer-events-none absolute inset-x-0 top-0 bg-gradient-to-b from-ars-accent-soft/25 to-transparent";
+const glowTopHighlightClassName =
+  "pointer-events-none absolute inset-x-0 top-0 bg-gradient-to-b from-ars-highlight/20 to-transparent";
+
 export default function Manifest() {
   return (
-    <section
-      id="manifest"
-      className="min-h-screen flex flex-col items-center justify-center"
-    >
-      <div className="min-h-screen flex flex-col items-center justify-center">
-        <div>
-          <h2>Manifest</h2>
-          <h3>The start of the end</h3>
-          <p>Everything fails together. This isn't just a single failure, but multiple scattered that cumulatively lead to collapse.Like a city starved of resources, the body shuts down as critical functions don't replenish.</p>
-        </div>
-      </div>
+    <section id="manifest" className={sectionClassName}>
+      <SectionHeroSplit
+        pill={<>Manifest phase</>}
+        title={
+          <>
+            Systemic <Highlight>Collapse</Highlight>
+          </>
+        }
+        subtitle={<>The start of the end</>}
+        paragraphs={[
+          <>
+            Everything fails together. This isn&apos;t a single failure, but
+            multiple systems breaking at once.
+          </>,
+          <>
+            Like a city starved of resources, the body starts shutting down as
+            critical functions can no longer replenish.
+          </>,
+          <>
+            By this phase, the margin is gone and decline accelerates.
+          </>,
+        ]}
+        icon={Skull}
+        glowClassName={`${glowTopSoftClassName} h-24`}
+      />
 
-      <div className="min-h-screen flex flex-col items-center justify-center">
-        <div>
-          <h2>Hematopoietic</h2>
-          <h3>Stem Cell Failure</h3>
-          <p>White blood cells drop to almost 0. There's no immune system left. No blood clotting. This isn't a case of low counts. This is a loss of manufacturing capability, and there's nothing the body can do.</p>
-        </div>
-      </div>
+      <SectionFeatureSplit
+        eyebrow={<>Hematopoietic</>}
+        title={
+          <>
+            Stem Cell <Highlight>Failure</Highlight>
+          </>
+        }
+        paragraphs={[
+          <>
+            White blood cells fall toward zero. Immune defense is effectively
+            gone, and platelet support collapses.
+          </>,
+          <>
+            This isn&apos;t low blood counts. This is loss of manufacturing
+            capability.
+          </>,
+          <>
+            The body cannot replace what it is losing.
+          </>,
+        ]}
+        icon={Bone}
+        glowClassName={`${glowTopHighlightClassName} h-20`}
+      />
 
-      <div className="min-h-screen flex flex-col items-center justify-center">
-        <div>
-          <h2>Gastrointestinal</h2>
-          <h3>Barrier loss</h3>
-          <p>The intestinal lining often replenishes every few days. This time, it sheds and doesn't return. Severe diarrhea, massive fluid loss, and no intestinal barrier enables gut bacteria to travel freely. blood loss is self sustained. the GI system collapses. </p>
-        </div>
-      </div>
+      <SectionFeatureSplit
+        eyebrow={<>Gastrointestinal</>}
+        title={
+          <>
+            Barrier <Highlight>Loss</Highlight>
+          </>
+        }
+        paragraphs={[
+          <>
+            The intestinal lining normally renews every few days. In this
+            phase, it sheds and does not return.
+          </>,
+          <>
+            Severe diarrhea and fluid loss follow, while barrier failure allows
+            gut bacteria to move freely.
+          </>,
+          <>
+            Self-sustaining GI bleeding can begin, driving the system toward
+            collapse.
+          </>,
+        ]}
+        icon={Pill}
+        invert
+        glowClassName={`${glowTopSoftClassName} h-20`}
+      />
 
-      <div className="min-h-screen flex flex-col items-center justify-center">
-        <div>
-          <h2>Cutaneous</h2>
-          <h3>Skin loss</h3>
-          <p>Skin falls off like leaves from a tree with the basal layer stem cells destroyed. fluids and heat leak out like a leaking faucet, costing further nutrients from an imploding body. the bodies strongest defense sloughs off like an animal shedding.</p>
-        </div>
-      </div>
+      <SectionFeatureSplit
+        eyebrow={<>Cutaneous</>}
+        title={
+          <>
+            Skin <Highlight>Loss</Highlight>
+          </>
+        }
+        paragraphs={[
+          <>
+            With basal stem cells destroyed, skin sloughs off like leaves from
+            a dying tree.
+          </>,
+          <>
+            Fluids and heat leak out continuously, draining reserves from an
+            already imploding body.
+          </>,
+          <>
+            The body&apos;s strongest outer defense breaks down.
+          </>,
+        ]}
+        icon={Shield}
+        glowClassName={`${glowTopHighlightClassName} h-20`}
+      />
 
-      <div className="min-h-screen flex flex-col items-center justify-center">
-        <div>
-          <h2>Respiratory</h2>
-          <h3>Oxygen depletion</h3>
-          <p>With lung tissue affected, oxygen demands increase with capability decreased. Mechanical ventilation may be necessary, but intervention is equally difficult by bleeding risk.</p>
-        </div>
-      </div>
+      <SectionFeatureSplit
+        eyebrow={<>Respiratory</>}
+        title={
+          <>
+            Oxygen <Highlight>Depletion</Highlight>
+          </>
+        }
+        paragraphs={[
+          <>
+            Lung damage reduces oxygen exchange while demand keeps rising.
+          </>,
+          <>
+            Mechanical ventilation may become necessary, but intervention is
+            complicated by bleeding risk.
+          </>,
+          <>
+            Support can delay collapse, not reverse it.
+          </>,
+        ]}
+        icon={Wind}
+        invert
+        glowClassName={`${glowTopSoftClassName} h-20`}
+      />
 
-      <div className="min-h-screen flex flex-col items-center justify-center">
-        <div>
-          <h2>Muscle breakdown</h2>
-          <h3>fall to collapse</h3>
-          <p>with necrotic tissue releasing myoglobin into circulation, the kidneys are overwhelmed, leading to kidney and renal failure. amputation may be considered, but even that is restricted by bleeding risk and failure to heal.</p>
-        </div>
-      </div>
-
+      <SectionFeatureSplit
+        eyebrow={<>Musculoskeletal</>}
+        title={
+          <>
+            Fall to <Highlight>Collapse</Highlight>
+          </>
+        }
+        paragraphs={[
+          <>
+            Necrotic muscle releases myoglobin into circulation, overloading the
+            kidneys.
+          </>,
+          <>
+            Renal failure follows as filtration can no longer keep pace with
+            tissue breakdown.
+          </>,
+          <>
+            Amputation may be considered, but bleeding risk and failed healing
+            often make intervention nonviable.
+          </>,
+        ]}
+        icon={Dumbbell}
+        glowClassName={`${glowTopHighlightClassName} h-20`}
+      />
     </section>
-  )
+  );
 }

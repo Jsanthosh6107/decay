@@ -5,6 +5,7 @@ export * from "./SectionHeroSplit";
 export * from "./SectionFeatureSplit";
 export * from "./SectionFeatureTiles";
 export * from "./SectionCenteredNarrative";
+export * from "./SectionStatus";
 export * from "./SectionIconDisplay";
 export * from "./SectionStatCard";
 export * from "./OrganSystemCard";

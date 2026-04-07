@@ -14,9 +14,15 @@ export type OrganSystem = {
 
 export type OrganSystemCardProps = {
   system: OrganSystem;
+  statusLabel?: ReactNode;
+  failureLabel?: ReactNode;
 };
 
-export function OrganSystemCard({ system }: OrganSystemCardProps) {
+export function OrganSystemCard({
+  system,
+  statusLabel = "Functional",
+  failureLabel = "Importance",
+}: OrganSystemCardProps) {
   const { Icon, name, role, maintenance, failure } = system;
 
   return (
@@ -30,7 +36,7 @@ export function OrganSystemCard({ system }: OrganSystemCardProps) {
           </div>
 
           <span className="rounded-full border border-white/20 bg-white/5 px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-white/70">
-            Functional
+            {statusLabel}
           </span>
         </div>
 
@@ -43,7 +49,7 @@ export function OrganSystemCard({ system }: OrganSystemCardProps) {
 
         <div className="mt-auto rounded-xl border border-ars-highlight/45 bg-ars-highlight/10 p-4">
           <p className="text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-ars-highlight">
-            Importance
+            {failureLabel}
           </p>
           <p className="mt-2 text-sm leading-relaxed text-white/90">{failure}</p>
         </div>

@@ -1,9 +1,22 @@
-import { Biohazard, Droplets, HeartCrack, Stethoscope } from "lucide-react";
+import {
+  Biohazard,
+  Bone,
+  BrainCircuit,
+  Droplets,
+  HeartCrack,
+  Pill,
+  Shield,
+  Stethoscope,
+} from "lucide-react";
 import {
   Highlight,
+  OrganSystemCard,
+  type OrganSystem,
   SectionCenteredNarrative,
   SectionFeatureSplit,
+  SectionScreen,
 } from "@/components/ui";
+import Carousel, { CarouselItem } from "@/components/ui/EmblaCarousel";
 
 const sectionClassName = "relative w-screen overflow-x-clip";
 const glowTopSoftClassName =
@@ -11,31 +24,108 @@ const glowTopSoftClassName =
 const glowTopHighlightClassName =
   "pointer-events-none absolute inset-x-0 top-0 bg-gradient-to-b from-ars-highlight/20 to-transparent";
 
+const terminalOrganSystems: OrganSystem[] = [
+  {
+    id: "bone-marrow-terminal",
+    name: <>Bone marrow</>,
+    role: <>hematopoiesis collapse</>,
+    maintenance: (
+      <>
+        Stem-cell reserves are exhausted. Blood-cell factories are silent, and
+        circulating counts only fall.
+      </>
+    ),
+    failure: (
+      <>
+        Immunity and clotting fail together. Infection and uncontrolled
+        bleeding become parallel threats.
+      </>
+    ),
+    Icon: Bone,
+  },
+  {
+    id: "gastrointestinal-terminal",
+    name: <>Gastrointestinal</>,
+    role: <>barrier dissolution</>,
+    maintenance: (
+      <>
+        The intestinal lining no longer regenerates. Mucosa sheds, nutrient
+        uptake crashes, and fluid loss accelerates.
+      </>
+    ),
+    failure: (
+      <>
+        Barrier loss allows bacterial translocation and sepsis while
+        electrolyte collapse drives shock physiology.
+      </>
+    ),
+    Icon: Pill,
+  },
+  {
+    id: "neurovascular-terminal",
+    name: <>Neurovascular</>,
+    role: <>signal + perfusion failure</>,
+    maintenance: (
+      <>
+        Endothelial integrity fragments and perfusion destabilizes. Oxygen
+        delivery becomes inconsistent across critical tissue.
+      </>
+    ),
+    failure: (
+      <>
+        Hypoperfusion and inflammatory injury compound neurologic decline,
+        increasing recurrent arrest risk.
+      </>
+    ),
+    Icon: BrainCircuit,
+  },
+  {
+    id: "skin-terminal",
+    name: <>Skin</>,
+    role: <>protective shell loss</>,
+    maintenance: (
+      <>
+        Basal layers stop renewing. Surface tissue sloughs away, stripping
+        temperature control and hydration retention.
+      </>
+    ),
+    failure: (
+      <>
+        The outer barrier is gone. Heat, fluid, and pathogens move freely
+        across a failing boundary.
+      </>
+    ),
+    Icon: Shield,
+  },
+];
+
 export default function Death() {
   return (
     <section id="death" className={sectionClassName}>
-      <SectionCenteredNarrative
-        eyebrow={<>Terminal phase</>}
-        title={
-          <>
-            Support Replaces <Highlight>Function</Highlight>
-          </>
-        }
-        subtitle={<>Autonomous systems fail in sequence</>}
-        paragraphs={[
-          <>
-            At high doses, the manifest phase does not stabilize.
-          </>,
-          <>
-            Machines begin replacing circulation, respiration, and renal
-            support while autonomous function continues to decline.
-          </>,
-          <>
-            The body is being sustained, but no longer recovering.
-          </>,
-        ]}
-        glowClassName={`${glowTopSoftClassName} h-24`}
-      />
+      <SectionScreen className="py-16">
+        <div className="mx-auto flex w-full max-w-7xl flex-col gap-6 px-4 sm:px-8 lg:px-16">
+
+          <Carousel
+            loop={false}
+            align="start"
+            className="relative left-1/2 w-screen -translate-x-1/2"
+            trackClassName="gap-5 px-0 pb-6"
+          >
+            {terminalOrganSystems.map((system, index) => (
+              <CarouselItem
+                key={system.id ?? `terminal-organ-system-${index}`}
+                contentClassName="border-0 bg-transparent p-0 shadow-none"
+              >
+                <OrganSystemCard
+                  system={system}
+                  statusLabel="Functionally Dead"
+                  failureLabel="Failure"
+                />
+              </CarouselItem>
+            ))}
+          </Carousel>
+        </div>
+      </SectionScreen>
 
       <SectionFeatureSplit
         eyebrow={<>Shock physiology</>}

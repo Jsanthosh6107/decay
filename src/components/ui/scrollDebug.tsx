@@ -31,11 +31,13 @@ export default function ScrollDebug() {
       "homeostasis",
       "exposure",
       "prodrome",
+      "prodrome-end",
       "recovery",
       "latent",
       "relapse",
       "manifest",
       "death",
+      "death-end",
     ];
 
     const scrollRoot = document.getElementById("scroll-root");
@@ -66,44 +68,54 @@ export default function ScrollDebug() {
 
       const exposure = b["exposure"];
       const prodrome = b["prodrome"];
+      const prodromeEnd = b["prodrome-end"];
       const recovery = b["recovery"];
       const relapse = b["relapse"];
       const death = b["death"];
+      const deathEnd = b["death-end"];
 
       const y = scrollRoot.scrollTop + scrollRoot.clientHeight * 0.5;
 
-      if (!exposure || !prodrome || !recovery || !relapse || !death) {
+      if (
+        !exposure ||
+        !prodrome ||
+        !prodromeEnd ||
+        !recovery ||
+        !relapse ||
+        !death ||
+        !deathEnd
+      ) {
         setProgress(0);
         return;
       }
 
       let value = 0;
 
-      // 0 through Homeostasis
+      // Homeostasis stays at 0
       if (y < exposure.top) {
         value = 0;
       }
-      // Exposure -> end of Prodrome ramps to 0.30
-      else if (y >= exposure.top && y <= prodrome.bottom) {
-        value = remap(y, exposure.top, prodrome.bottom, 0, 0.3);
+      // Exposure through end of Prodrome ramps to 0.30
+      else if (y >= exposure.top && y <= prodromeEnd.bottom) {
+        value = remap(y, exposure.top, prodromeEnd.bottom, 0, 0.3);
       }
-      // Hold peak until Recovery actually starts
-      else if (y > prodrome.bottom && y < recovery.top) {
+      // Hold at 0.30 until Recovery actually begins
+      else if (y > prodromeEnd.bottom && y < recovery.top) {
         value = 0.3;
       }
-      // Recovery alone drops from 0.30 back to 0
+      // Recovery alone drops sharply back to 0
       else if (y >= recovery.top && y <= recovery.bottom) {
         value = remap(y, recovery.top, recovery.bottom, 0.3, 0);
       }
-      // Latent stays at 0 until Relapse starts
+      // Latent stays at 0 until Relapse begins
       else if (y > recovery.bottom && y < relapse.top) {
         value = 0;
       }
-      // Relapse -> Manifest -> full Death ramps to 1
-      else if (y >= relapse.top && y <= death.bottom) {
-        value = remap(y, relapse.top, death.bottom, 0, 1);
+      // Relapse through end of Death ramps from 0 to 1
+      else if (y >= relapse.top && y <= deathEnd.bottom) {
+        value = remap(y, relapse.top, deathEnd.bottom, 0, 1);
       }
-      // After Death stays at 1
+      // Beyond Death stays at 1
       else {
         value = 1;
       }

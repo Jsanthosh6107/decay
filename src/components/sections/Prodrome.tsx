@@ -122,7 +122,7 @@ export default function Prodrome() {
         />
       </section>
 
-      <section className={snapSectionClassName}>
+      <section className={snapSectionClassName} id="prodrome-end">
         <SectionCenteredNarrative
           eyebrow={<>Misfiring</>}
           title={<>No proper <Highlight>response</Highlight></>}

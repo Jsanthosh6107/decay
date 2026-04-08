@@ -1,3 +1,5 @@
+'use client';
+
 import {
   Biohazard,
   Bone,
@@ -16,7 +18,12 @@ import {
   SectionFeatureSplit,
   SectionScreen,
 } from "@/components/ui";
-import Carousel, { CarouselItem } from "@/components/ui/EmblaCarousel";
+import Carousel, {
+  CarouselItem,
+  type CarouselApi,
+} from "@/components/ui/EmblaCarousel";
+import { useRef, useState } from "react";
+import { useEmblaScrollGate } from "@/lib/useEmblaScrollGate";
 
 const sectionClassName = "relative w-screen overflow-x-clip";
 const snapSectionClassName = `${sectionClassName} min-h-screen snap-start`;
@@ -101,14 +108,20 @@ const terminalOrganSystems: OrganSystem[] = [
 ];
 
 export default function Death() {
+  const carouselSectionRef = useRef<HTMLElement | null>(null);
+  const [emblaApi, setEmblaApi] = useState<CarouselApi>();
+
+  useEmblaScrollGate({ sectionRef: carouselSectionRef, emblaApi });
+
   return (
     <>
-      <section id="death" className={snapSectionClassName}>
+      <section id="death" ref={carouselSectionRef} className={snapSectionClassName}>
         <SectionScreen className="py-16">
           <div className="mx-auto flex w-full max-w-7xl flex-col gap-6 px-4 sm:px-8 lg:px-16">
             <Carousel
               loop={false}
               align="start"
+              onApiReady={setEmblaApi}
               className="relative left-1/2 w-screen -translate-x-1/2"
               trackClassName="gap-5 px-0 pb-6"
             >
@@ -236,7 +249,7 @@ export default function Death() {
         />
       </section>
 
-      <section className={snapSectionClassName}>
+      <section className={snapSectionClassName} id="death-end">
         <SectionCenteredNarrative
           eyebrow={<>The end</>}
           title={

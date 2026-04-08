@@ -1,8 +1,10 @@
 'use client';
 
 import useEmblaCarousel from 'embla-carousel-react';
-import { ReactNode } from 'react';
+import { ReactNode, useEffect } from 'react';
 import { cn } from '@/lib/utils';
+
+export type CarouselApi = NonNullable<ReturnType<typeof useEmblaCarousel>[1]>;
 
 type CarouselProps = {
   children: ReactNode;
@@ -11,6 +13,7 @@ type CarouselProps = {
   trackClassName?: string;
   loop?: boolean;
   align?: 'start' | 'center' | 'end';
+  onApiReady?: (api: CarouselApi | undefined) => void;
 };
 
 export default function Carousel({
@@ -20,12 +23,17 @@ export default function Carousel({
   trackClassName,
   loop = false,
   align = 'start',
+  onApiReady,
 }: CarouselProps) {
-  const [emblaRef] = useEmblaCarousel({
+  const [emblaRef, emblaApi] = useEmblaCarousel({
     loop,
     align,
     containScroll: loop ? false : 'trimSnaps',
   });
+
+  useEffect(() => {
+    onApiReady?.(emblaApi);
+  }, [emblaApi, onApiReady]);
 
   return (
     <div className={cn("w-full", className)}>

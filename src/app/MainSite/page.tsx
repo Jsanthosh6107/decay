@@ -12,19 +12,20 @@ import NetworkBackground from "@/components/ui/BackgroundAnimated";
 
 export default function Page() {
   return (
-    <>
+    <main 
+      id="scroll-root"
+      className="relative h-screen overflow-y-auto snap-y snap-mandatory overflow-x-hidden"
+    >
       <NetworkBackground />
       <ScrollDebug />
-      <main className="relative z-0 overflow-x-hidden">
-        <Homeostasis />
-        <Exposure />
-        <Prodrome />
-        <Recovery />
-        <Latent />
-        <Relapse />
-        <Manifest />
-        <Death />
-      </main>
-    </>
+      <Homeostasis />
+      <Exposure />
+      <Prodrome />
+      <Recovery />
+      <Latent />
+      <Relapse />
+      <Manifest />
+      <Death />
+    </main>
   );
 }

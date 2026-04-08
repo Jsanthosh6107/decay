@@ -5,6 +5,7 @@ import {
 } from "@/components/ui";
 
 const sectionClassName = "relative w-screen overflow-x-clip";
+const snapSectionClassName = `${sectionClassName} min-h-screen snap-start`;
 const glowTopSoftClassName =
   "pointer-events-none absolute inset-x-0 top-0 bg-gradient-to-b from-ars-accent-soft/25 to-transparent";
 
@@ -43,7 +44,7 @@ const relapseStatuses: SectionStatusItem[] = [
 
 export default function Relapse() {
   return (
-    <section id="relapse" className={sectionClassName}>
+    <section id="relapse" className={snapSectionClassName}>
       <SectionStatus
         eyebrow={<>Relapse phase</>}
         title={

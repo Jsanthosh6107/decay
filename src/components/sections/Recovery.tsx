@@ -5,6 +5,7 @@ import {
 } from "@/components/ui";
 
 const sectionClassName = "relative w-screen overflow-x-clip";
+const snapSectionClassName = `${sectionClassName} min-h-screen snap-start`;
 const glowTopSoftClassName =
   "pointer-events-none absolute inset-x-0 top-0 bg-gradient-to-b from-ars-accent-soft/25 to-transparent";
 
@@ -43,7 +44,7 @@ const recoveryStatuses: SectionStatusItem[] = [
 
 export default function Recovery() {
   return (
-    <section id="recovery" className={sectionClassName}>
+    <section id="recovery" className={snapSectionClassName}>
       <SectionStatus
         eyebrow={<>Recovery window</>}
         title={

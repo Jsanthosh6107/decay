@@ -142,6 +142,7 @@ const stats: HomeostasisStat[] = [
 /* glow classes from some codepen */
 
 const sectionClassName = "relative w-screen overflow-x-clip";
+const snapSectionClassName = `${sectionClassName} min-h-screen snap-start`;
 const glowTopSoftClassName =
   "pointer-events-none absolute inset-x-0 top-0 bg-gradient-to-b from-ars-accent-soft/25 to-transparent";
 const glowTopHighlightClassName =
@@ -151,128 +152,138 @@ const glowTopHighlightClassName =
 
 export default function Homeostasis() {
   return (
-    <section id="homeostasis" className={sectionClassName}>
-      <div className="relative min-h-screen w-full overflow-hidden">
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-56 bg-linear-to-b from-ars-accent-soft/20 to-transparent" />
+    <>
+      <section id="homeostasis" className={snapSectionClassName}>
+        <div className="relative min-h-screen w-full overflow-hidden">
+          <div className="pointer-events-none absolute inset-x-0 top-0 h-56 bg-linear-to-b from-ars-accent-soft/20 to-transparent" />
 
-        <div className="mx-auto flex min-h-screen w-full max-w-6xl flex-col items-center justify-center gap-8 px-4 py-20 text-center sm:px-8 lg:px-16">
-          <SectionPill>Homeostasis</SectionPill>
+          <div className="mx-auto flex min-h-screen w-full max-w-6xl flex-col items-center justify-center gap-8 px-4 py-20 text-center sm:px-8 lg:px-16">
+            <SectionPill>Homeostasis</SectionPill>
 
-          <SectionPanel
-            className="w-full rounded-3xl p-8 sm:p-10"
-            glowClassName="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-ars-accent-soft/30 via-ars-highlight/10 to-transparent"
-          >
-            <div className="flex flex-col items-center gap-5">
-              <div className="flex items-center gap-2 text-7xl sm:text-8xl md:text-9xl">
-                <div className="bobbing">
-                  <AtomLogo className="h-[1em] w-[1em]" />
+            <SectionPanel
+              className="w-full rounded-3xl p-8 sm:p-10"
+              glowClassName="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-ars-accent-soft/30 via-ars-highlight/10 to-transparent"
+            >
+              <div className="flex flex-col items-center gap-5">
+                <div className="flex items-center gap-2 text-7xl sm:text-8xl md:text-9xl">
+                  <div className="bobbing">
+                    <AtomLogo className="h-[1em] w-[1em]" />
+                  </div>
+                  <H1>
+                    <>ARS</>
+                  </H1>
                 </div>
-                <H1>
-                  <>ARS</>
-                </H1>
+
+                <TypographyLead className="max-w-3xl text-lg text-white sm:text-xl">
+                  <>
+                    The{" "}
+                    <span className="text-ars-highlight">development</span> of{" "}
+                    <span className="text-ars-accent-soft">
+                      Acute Radiation Syndrome
+                    </span>
+                  </>
+                </TypographyLead>
               </div>
-
-              <TypographyLead className="max-w-3xl text-lg text-white sm:text-xl">
-                <>
-                  The{" "}
-                  <span className="text-ars-highlight">development</span> of{" "}
-                  <span className="text-ars-accent-soft">
-                    Acute Radiation Syndrome
-                  </span>
-                </>
-              </TypographyLead>
-            </div>
-          </SectionPanel>
+            </SectionPanel>
+          </div>
         </div>
-      </div>
+      </section>
 
-      <SectionFeatureSplit
-        eyebrow={<>Homeostasis</>}
-        title={
-          <>
-            A <Highlight>stable</Highlight> condition
-          </>
-        }
-        paragraphs={[
-          <>
-            Your body is a bustling city of cells, tissues, and organs, all working in harmony to keep you as a collective alive.
-          </>,
-        ]}
-        icon={Scale}
-        glowClassName={`${glowTopSoftClassName} h-20`}
-      >
-        <div className="mt-8 grid gap-4 md:grid-cols-2">
-          {stats.map((stat) => (
-            <SectionStatCard
-              key={stat.id}
-              icon={stat.icon}
-              iconClassName={stat.iconClassName}
-              label={stat.label}
-              value={stat.value}
-              suffix={stat.suffix}
-              unit={stat.unit}
-              className={stat.className}
-            />
-          ))}
-        </div>
-      </SectionFeatureSplit>
-
-      <SectionFeatureSplit
-        eyebrow={<>Organ systems</>}
-        title={
-          <>
-            Functioning <Highlight>Maintenance</Highlight>
-          </>
-        }
-        paragraphs={[
-          <>Organs are like infrastructure in a city.</>,
-          <>
-            They silently manufacture blood cells, hormones, enzymes, and
-            tissue constantly.
-          </>,
-          <>
-            This unison allows the body to remain robust and functional.
-          </>,
-        ]}
-        icon={Cable}
-        invert
-        glowClassName={`${glowTopHighlightClassName} h-20`}
-      />
-
-      <SectionScreen className="py-16">
-        <div className="mx-auto flex w-full max-w-7xl flex-col gap-6 px-4 sm:px-8 lg:px-16">
-          <Carousel
-            loop={false}
-            align="start"
-            className="relative left-1/2 w-screen -translate-x-1/2"
-            trackClassName="gap-5 px-0 pb-6"
-          >
-            {organSystems.map((system, index) => (
-              <CarouselItem
-                key={system.id ?? `organ-system-${index}`}
-                contentClassName="border-0 bg-transparent p-0 shadow-none"
-              >
-                <OrganSystemCard system={system} />
-              </CarouselItem>
+      <section className={snapSectionClassName}>
+        <SectionFeatureSplit
+          eyebrow={<>Homeostasis</>}
+          title={
+            <>
+              A <Highlight>stable</Highlight> condition
+            </>
+          }
+          paragraphs={[
+            <>
+              Your body is a bustling city of cells, tissues, and organs, all working in harmony to keep you as a collective alive.
+            </>,
+          ]}
+          icon={Scale}
+          glowClassName={`${glowTopSoftClassName} h-20`}
+        >
+          <div className="mt-8 grid gap-4 md:grid-cols-2">
+            {stats.map((stat) => (
+              <SectionStatCard
+                key={stat.id}
+                icon={stat.icon}
+                iconClassName={stat.iconClassName}
+                label={stat.label}
+                value={stat.value}
+                suffix={stat.suffix}
+                unit={stat.unit}
+                className={stat.className}
+              />
             ))}
-          </Carousel>
-        </div>
-      </SectionScreen>
+          </div>
+        </SectionFeatureSplit>
+      </section>
 
-      <SectionCenteredNarrative
-        eyebrow={<>Threshold</>}
-        title={<>What&apos;s about to <Highlight>happen</Highlight></>}
-        paragraphs={[
-          <>ARS is unique because it&apos;s not an infection, disease, or injury.</>,
-          <>
-            It cripples the <Highlight>very systems</Highlight> that keep you alive, often without a sound.
-          </>,
-          <>
-            Your body never get&apos;s the chance to react, adapt, or even <Highlight>realize</Highlight> what hit it.
-          </>,
-        ]}
-        glowClassName={`${glowTopHighlightClassName} h-20`}
-      />
-    </section>
+      <section className={snapSectionClassName}>
+        <SectionFeatureSplit
+          eyebrow={<>Organ systems</>}
+          title={
+            <>
+              Functioning <Highlight>Maintenance</Highlight>
+            </>
+          }
+          paragraphs={[
+            <>Organs are like infrastructure in a city.</>,
+            <>
+              They silently manufacture blood cells, hormones, enzymes, and
+              tissue constantly.
+            </>,
+            <>
+              This unison allows the body to remain robust and functional.
+            </>,
+          ]}
+          icon={Cable}
+          invert
+          glowClassName={`${glowTopHighlightClassName} h-20`}
+        />
+      </section>
+
+      <section className={snapSectionClassName}>
+        <SectionScreen className="py-16">
+          <div className="mx-auto flex w-full max-w-7xl flex-col gap-6 px-4 sm:px-8 lg:px-16">
+            <Carousel
+              loop={false}
+              align="start"
+              className="relative left-1/2 w-screen -translate-x-1/2"
+              trackClassName="gap-5 px-0 pb-6"
+            >
+              {organSystems.map((system, index) => (
+                <CarouselItem
+                  key={system.id ?? `organ-system-${index}`}
+                  contentClassName="border-0 bg-transparent p-0 shadow-none"
+                >
+                  <OrganSystemCard system={system} />
+                </CarouselItem>
+              ))}
+            </Carousel>
+          </div>
+        </SectionScreen>
+      </section>
+
+      <section className={snapSectionClassName}>
+        <SectionCenteredNarrative
+          eyebrow={<>Threshold</>}
+          title={<>What&apos;s about to <Highlight>happen</Highlight></>}
+          paragraphs={[
+            <>ARS is unique because it&apos;s not an infection, disease, or injury.</>,
+            <>
+              It cripples the <Highlight>very systems</Highlight> that keep you alive, often without a sound.
+            </>,
+            <>
+              Your body never get&apos;s the chance to react, adapt, or even <Highlight>realize</Highlight> what hit it.
+            </>,
+          ]}
+          glowClassName={`${glowTopHighlightClassName} h-20`}
+        />
+      </section>
+    </>
   );
 }

@@ -19,6 +19,7 @@ import {
 import Carousel, { CarouselItem } from "@/components/ui/EmblaCarousel";
 
 const sectionClassName = "relative w-screen overflow-x-clip";
+const snapSectionClassName = `${sectionClassName} min-h-screen snap-start`;
 const glowTopSoftClassName =
   "pointer-events-none absolute inset-x-0 top-0 bg-gradient-to-b from-ars-accent-soft/25 to-transparent";
 const glowTopHighlightClassName =
@@ -101,149 +102,160 @@ const terminalOrganSystems: OrganSystem[] = [
 
 export default function Death() {
   return (
-    <section id="death" className={sectionClassName}>
-      <SectionScreen className="py-16">
-        <div className="mx-auto flex w-full max-w-7xl flex-col gap-6 px-4 sm:px-8 lg:px-16">
+    <>
+      <section id="death" className={snapSectionClassName}>
+        <SectionScreen className="py-16">
+          <div className="mx-auto flex w-full max-w-7xl flex-col gap-6 px-4 sm:px-8 lg:px-16">
+            <Carousel
+              loop={false}
+              align="start"
+              className="relative left-1/2 w-screen -translate-x-1/2"
+              trackClassName="gap-5 px-0 pb-6"
+            >
+              {terminalOrganSystems.map((system, index) => (
+                <CarouselItem
+                  key={system.id ?? `terminal-organ-system-${index}`}
+                  contentClassName="border-0 bg-transparent p-0 shadow-none"
+                >
+                  <OrganSystemCard
+                    system={system}
+                    statusLabel="Functionally Dead"
+                    failureLabel="Failure"
+                  />
+                </CarouselItem>
+              ))}
+            </Carousel>
+          </div>
+        </SectionScreen>
+      </section>
 
-          <Carousel
-            loop={false}
-            align="start"
-            className="relative left-1/2 w-screen -translate-x-1/2"
-            trackClassName="gap-5 px-0 pb-6"
-          >
-            {terminalOrganSystems.map((system, index) => (
-              <CarouselItem
-                key={system.id ?? `terminal-organ-system-${index}`}
-                contentClassName="border-0 bg-transparent p-0 shadow-none"
-              >
-                <OrganSystemCard
-                  system={system}
-                  statusLabel="Functionally Dead"
-                  failureLabel="Failure"
-                />
-              </CarouselItem>
-            ))}
-          </Carousel>
-        </div>
-      </SectionScreen>
+      <section className={snapSectionClassName}>
+        <SectionFeatureSplit
+          eyebrow={<>Shock physiology</>}
+          title={
+            <>
+              Circulatory <Highlight>Instability</Highlight>
+            </>
+          }
+          paragraphs={[
+            <>
+              Vascular tone collapses and fluid shifts out of the bloodstream into
+              tissues, the GI tract, and compromised skin.
+            </>,
+            <>
+              Blood pressure becomes harder to sustain, often requiring continuous
+              transfusion support.
+            </>,
+            <>
+              Sepsis compounds the collapse and further stresses already failing
+              systems.
+            </>,
+          ]}
+          icon={Droplets}
+          glowClassName={`${glowTopHighlightClassName} h-20`}
+        />
+      </section>
 
-      <SectionFeatureSplit
-        eyebrow={<>Shock physiology</>}
-        title={
-          <>
-            Circulatory <Highlight>Instability</Highlight>
-          </>
-        }
-        paragraphs={[
-          <>
-            Vascular tone collapses and fluid shifts out of the bloodstream into
-            tissues, the GI tract, and compromised skin.
-          </>,
-          <>
-            Blood pressure becomes harder to sustain, often requiring continuous
-            transfusion support.
-          </>,
-          <>
-            Sepsis compounds the collapse and further stresses already failing
-            systems.
-          </>,
-        ]}
-        icon={Droplets}
-        glowClassName={`${glowTopHighlightClassName} h-20`}
-      />
+      <section className={snapSectionClassName}>
+        <SectionFeatureSplit
+          eyebrow={<>Cardiac arrest</>}
+          title={
+            <>
+              Neurological <Highlight>Decline</Highlight>
+            </>
+          }
+          paragraphs={[
+            <>
+              Repeated arrest can follow once reserves are exhausted.
+            </>,
+            <>
+              Return of circulation does not mean restoration of organ function.
+            </>,
+            <>
+              Each resuscitation interval often leaves deeper neurologic injury.
+            </>,
+          ]}
+          icon={HeartCrack}
+          invert
+          glowClassName={`${glowTopSoftClassName} h-20`}
+        />
+      </section>
 
-      <SectionFeatureSplit
-        eyebrow={<>Cardiac arrest</>}
-        title={
-          <>
-            Neurological <Highlight>Decline</Highlight>
-          </>
-        }
-        paragraphs={[
-          <>
-            Repeated arrest can follow once reserves are exhausted.
-          </>,
-          <>
-            Return of circulation does not mean restoration of organ function.
-          </>,
-          <>
-            Each resuscitation interval often leaves deeper neurologic injury.
-          </>,
-        ]}
-        icon={HeartCrack}
-        invert
-        glowClassName={`${glowTopSoftClassName} h-20`}
-      />
+      <section className={snapSectionClassName}>
+        <SectionFeatureSplit
+          eyebrow={<>Renal and hepatic failure</>}
+          title={
+            <>
+              Metabolic <Highlight>Collapse</Highlight>
+            </>
+          }
+          paragraphs={[
+            <>
+              Kidney and liver failure follow prolonged hypotension, circulating
+              toxins, myoglobin load, and systemic inflammation.
+            </>,
+            <>
+              Filtration and detoxification fail together as waste and acid
+              burden rise.
+            </>,
+            <>
+              Dialysis becomes necessary to temporarily support what organs can no
+              longer do.
+            </>,
+          ]}
+          icon={Stethoscope}
+          glowClassName={`${glowTopHighlightClassName} h-20`}
+        />
+      </section>
 
-      <SectionFeatureSplit
-        eyebrow={<>Renal and hepatic failure</>}
-        title={
-          <>
-            Metabolic <Highlight>Collapse</Highlight>
-          </>
-        }
-        paragraphs={[
-          <>
-            Kidney and liver failure follow prolonged hypotension, circulating
-            toxins, myoglobin load, and systemic inflammation.
-          </>,
-          <>
-            Filtration and detoxification fail together as waste and acid
-            burden rise.
-          </>,
-          <>
-            Dialysis becomes necessary to temporarily support what organs can no
-            longer do.
-          </>,
-        ]}
-        icon={Stethoscope}
-        glowClassName={`${glowTopHighlightClassName} h-20`}
-      />
+      <section className={snapSectionClassName}>
+        <SectionFeatureSplit
+          eyebrow={<>Secondary infections</>}
+          title={
+            <>
+              No Walls <Highlight>Left</Highlight>
+            </>
+          }
+          paragraphs={[
+            <>
+              With external and internal barriers failing, pathogens move through
+              the body with minimal resistance.
+            </>,
+            <>
+              Bacterial, fungal, and viral infections spread while immune capacity
+              is nearly absent.
+            </>,
+            <>
+              Infection is no longer a complication. It becomes part of terminal
+              physiology.
+            </>,
+          ]}
+          icon={Biohazard}
+          invert
+          glowClassName={`${glowTopSoftClassName} h-20`}
+        />
+      </section>
 
-      <SectionFeatureSplit
-        eyebrow={<>Secondary infections</>}
-        title={
-          <>
-            No Walls <Highlight>Left</Highlight>
-          </>
-        }
-        paragraphs={[
-          <>
-            With external and internal barriers failing, pathogens move through
-            the body with minimal resistance.
-          </>,
-          <>
-            Bacterial, fungal, and viral infections spread while immune capacity
-            is nearly absent.
-          </>,
-          <>
-            Infection is no longer a complication. It becomes part of terminal
-            physiology.
-          </>,
-        ]}
-        icon={Biohazard}
-        invert
-        glowClassName={`${glowTopSoftClassName} h-20`}
-      />
-
-      <SectionCenteredNarrative
-        eyebrow={<>The end</>}
-        title={
-          <>
-            No Path <Highlight>Back</Highlight>
-          </>
-        }
-        paragraphs={[
-          <>
-            With life sustained by machines and physiologic decline continuing,
-            reserves eventually reach zero.
-          </>,
-          <>
-            At that point, another cardiac arrest is often allowed to end life.
-          </>,
-        ]}
-        glowClassName={`${glowTopHighlightClassName} h-20`}
-      />
-    </section>
+      <section className={snapSectionClassName}>
+        <SectionCenteredNarrative
+          eyebrow={<>The end</>}
+          title={
+            <>
+              No Path <Highlight>Back</Highlight>
+            </>
+          }
+          paragraphs={[
+            <>
+              With life sustained by machines and physiologic decline continuing,
+              reserves eventually reach zero.
+            </>,
+            <>
+              At that point, another cardiac arrest is often allowed to end life.
+            </>,
+          ]}
+          glowClassName={`${glowTopHighlightClassName} h-20`}
+        />
+      </section>
+    </>
   );
 }

@@ -1,5 +1,6 @@
 import "./globals.css"
 import { Quicksand, Poppins } from "next/font/google"
+import GlobalDecayGlow from "@/components/ui/GlobalDecayGlow";
 
 const quicksand = Quicksand({
   subsets: ["latin"],
@@ -18,6 +19,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
         <body className={`${quicksand.variable} ${poppins.variable} antialiased`}>
         {children}
+        <GlobalDecayGlow />
       </body>
     </html>
   )

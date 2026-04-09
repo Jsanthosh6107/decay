@@ -9,6 +9,7 @@ import Manifest from "@/components/sections/Manifest";
 import Death from "@/components/sections/Death";
 import ScrollDebug from "@/components/ui/scrollDebug";
 import NetworkBackground from "@/components/ui/BackgroundAnimated";
+import MainSiteAmbientAudio from "@/components/ui/MainSiteAmbientAudio";
 
 export default function Page() {
   return (
@@ -16,6 +17,7 @@ export default function Page() {
       id="scroll-root"
       className="relative h-screen overflow-y-auto snap-y snap-mandatory overflow-x-hidden"
     >
+      <MainSiteAmbientAudio />
       <NetworkBackground />
       <ScrollDebug />
       <Homeostasis />

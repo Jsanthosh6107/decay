@@ -3,14 +3,15 @@
 import HeroRadiation from "@/components/ui/HeroRadiation";
 import { useEffect, useRef } from "react"
 import { Radiation } from 'lucide-react';
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 
 export default function Page() {
+  const router = useRouter()
   const arenaRef = useRef<HTMLDivElement>(null)
   const cardRef = useRef<HTMLDivElement>(null)
 
-    useEffect(() => {
+  useEffect(() => {
     document.body.classList.add("bg-ars-accent-deeper")
     document.documentElement.classList.add("bg-ars-accent-deeper")
 
@@ -19,6 +20,11 @@ export default function Page() {
       document.documentElement.classList.remove("bg-ars-accent-deeper")
     }
   }, [])
+
+  const handleStart = () => {
+    sessionStorage.setItem("ars-started", "true")
+    router.push("/MainSite")
+  }
 
   return (
     <section id="gate" className="min-h-screen flex items-center justify-center bg-ars-accent-deeper">
@@ -34,7 +40,9 @@ export default function Page() {
             relative flex flex-col items-center justify-center rounded-lg
           `}
         >
-          <Link href="/MainSite" 
+          <button
+            type="button"
+            onClick={handleStart}
             className={`
               radioactive-btn
               group
@@ -50,8 +58,8 @@ export default function Page() {
             `}
           >
             <Radiation className="w-[1.2em] h-[1.2em] transition-transform duration-500 group-hover:animate-spin group-hover:stroke-ars-highlight" />
-            <span className="group-hover:text-ars-highlight">Begin ARS</span>
-          </Link>
+            <span className="group-hover:text-ars-highlight">Start ARS</span>
+          </button>
         </div>
       </div>
     </section>

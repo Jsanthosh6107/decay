@@ -1,5 +1,8 @@
 import * as React from "react"
 import { cn } from "@/lib/utils"
+import { Highlight } from "./Highlight"
+
+export { Highlight } from "./Highlight"
 
 type WithClassName<T> = T & { className?: string }
 
@@ -130,13 +133,6 @@ export function TypographyMuted({
   ...props
 }: WithClassName<React.HTMLAttributes<HTMLParagraphElement>>) {
   return <p className={cn("text-muted-foreground text-sm", className)} {...props} />
-}
-
-export function Highlight({
-  className,
-  ...props
-}: WithClassName<React.HTMLAttributes<HTMLSpanElement>>) {
-  return <span className={cn("text-ars-highlight text-shadow-yellow-shadow", className)} {...props} />
 }
 
 export function CounterButtonIncrease({

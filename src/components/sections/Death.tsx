@@ -75,14 +75,14 @@ const terminalOrganSystems: OrganSystem[] = [
     role: <>signal + perfusion failure</>,
     maintenance: (
       <>
-        Endothelial integrity fragments and perfusion destabilizes. Oxygen
-        delivery becomes inconsistent across critical tissue.
+        Blood flow breaks rhythm. Oxygen reaches the brain unevenly, leaving
+        critical areas under-supplied.
       </>
     ),
     failure: (
       <>
-        Hypoperfusion and inflammatory injury compound neurologic decline,
-        increasing recurrent arrest risk.
+        The brain begins to shut down as circulation falters, raising the risk
+        of repeated collapse.
       </>
     ),
     Icon: BrainCircuit,

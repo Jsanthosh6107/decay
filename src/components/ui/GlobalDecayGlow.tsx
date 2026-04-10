@@ -33,8 +33,10 @@ function getPerimeterBackground(visuals: DecayGlowVisuals, alphaScale = 1) {
 }
 
 export default function GlobalDecayGlow() {
-  const decay = useScrollStore((state) => state.progress);
+  const progress = useScrollStore((state) => state.progress);
+  const glowDecayOverride = useScrollStore((state) => state.glowDecayOverride);
   const prefersReducedMotion = useReducedMotion();
+  const decay = glowDecayOverride ?? progress;
 
   const visuals = useMemo(() => getDecayGlowVisuals(decay), [decay]);
 

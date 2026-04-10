@@ -156,12 +156,12 @@ export default function Death() {
               tissues, the GI tract, and compromised skin.
             </>,
             <>
-              Blood pressure becomes harder to sustain, often requiring continuous
+              Blood pressure becomes <Highlight>harder</Highlight> to sustain, often requiring continuous
               transfusion support.
             </>,
             <>
-              Sepsis compounds the collapse and further stresses already failing
-              systems.
+              Sepsis compounds the collapse and further stresses already <Highlight>failing
+              systems</Highlight>.
             </>,
           ]}
           icon={Droplets}
@@ -185,7 +185,7 @@ export default function Death() {
               Return of circulation does not mean restoration of organ function.
             </>,
             <>
-              Each resuscitation interval often leaves deeper neurologic injury.
+              Each resuscitation interval often leaves <Highlight>deeper</Highlight> neurologic injury.
             </>,
           ]}
           icon={HeartCrack}
@@ -208,7 +208,7 @@ export default function Death() {
               toxins, myoglobin load, and systemic inflammation.
             </>,
             <>
-              Filtration and detoxification fail together as waste and acid
+              Filtration and detoxification <Highlight>fail together</Highlight> as waste and acid
               burden rise.
             </>,
             <>
@@ -232,14 +232,14 @@ export default function Death() {
           paragraphs={[
             <>
               With external and internal barriers failing, pathogens move through
-              the body with minimal resistance.
+              the body with <Highlight>minimal</Highlight> resistance.
             </>,
             <>
               Bacterial, fungal, and viral infections spread while immune capacity
               is nearly absent.
             </>,
             <>
-              Infection is no longer a complication. It becomes part of terminal
+              Infection is no longer a complication. It becomes part of <Highlight>terminal</Highlight>
               physiology.
             </>,
           ]}
@@ -263,7 +263,7 @@ export default function Death() {
               reserves eventually reach zero.
             </>,
             <>
-              At that point, another cardiac arrest is often allowed to end life.
+              At that point, another cardiac arrest is often allowed to <Highlight>end life</Highlight>.
             </>,
           ]}
           glowClassName={`${glowTopHighlightClassName} h-20`}

@@ -169,6 +169,7 @@ export default function ScrollDebug() {
         padding: 8,
         fontSize: 12,
         borderRadius: 6,
+        display: 'none',
       }}
     >
       {progress.toFixed(2)}

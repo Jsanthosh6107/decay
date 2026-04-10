@@ -13,31 +13,31 @@ const relapseStatuses: SectionStatusItem[] = [
   {
     key: "white-blood-cells",
     label: <>White blood cells</>,
-    value: <>Production failing</>,
+    value: <>Critical failure</>,
     tone: "critical",
   },
   {
     key: "platelets",
     label: <>Platelets</>,
-    value: <>Production failing</>,
+    value: <>Critical failure</>,
     tone: "critical",
   },
   {
     key: "intestinal-lining",
     label: <>Intestinal lining</>,
-    value: <>Barrier breakdown</>,
+    value: <>Barrier failure</>,
     tone: "failure",
   },
   {
     key: "symptom-pattern",
     label: <>Symptoms</>,
-    value: <>Re-emerging</>,
+    value: <>Re-emergent</>,
     tone: "failure",
   },
   {
     key: "systemic-state",
     label: <>Body condition</>,
-    value: <>Systemic decline</>,
+    value: <>System collapse</>,
     tone: "failure",
   },
 ];
@@ -54,10 +54,9 @@ export default function Relapse() {
         }
         description={
           <>
-            Regenerative systems are no longer sustaining output. Blood cell
-            production is failing, platelet recovery is absent, and barrier tissues
-            are breaking down. Symptoms return as the body loses the ability to
-            maintain itself.
+            The systems that kept you alive are no longer <Highlight>keeping up</Highlight>.
+            Blood cell production is failing, platelets are not returning, and
+            protective tissues are starting to break apart.
           </>
         }
         statuses={relapseStatuses}

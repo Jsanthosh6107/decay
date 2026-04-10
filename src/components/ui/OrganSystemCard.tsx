@@ -26,9 +26,10 @@ export function OrganSystemCard({
   const { Icon, name, role, maintenance, failure } = system;
 
   return (
-    <SectionPanel className="h-full p-6">
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-linear-to-b from-ars-accent-soft/25 via-ars-highlight/10 to-transparent" />
-
+    <SectionPanel
+      className="h-full p-6"
+      glowClassName="inset-x-0 top-0 h-24 bg-linear-to-b from-ars-accent-soft/25 via-ars-highlight/10 to-transparent"
+    >
       <div className="relative flex h-full flex-col gap-4">
         <div className="flex items-start justify-between gap-3">
           <div className="rounded-xl border border-ars-accent-soft/60 bg-ars-accent-soft/10 p-3 shadow-[0_0_18px_rgba(104,255,126,0.2)]">

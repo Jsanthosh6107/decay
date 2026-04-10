@@ -23,14 +23,14 @@ export default function Manifest() {
           paragraphs={[
             <>
               Everything fails together. This isn&apos;t a single failure, but
-              multiple systems breaking at once.
+              multiple systems breaking <Highlight>at once.</Highlight>
             </>,
             <>
               Like a city starved of resources, the body starts shutting down as
               critical functions can no longer replenish.
             </>,
             <>
-              By this phase, the margin is gone and decline accelerates.
+              By this phase, the margin is gone and decline <Highlight>accelerates</Highlight>.
             </>,
           ]}
           icon={Skull}
@@ -56,7 +56,7 @@ export default function Manifest() {
               capability.
             </>,
             <>
-              The body cannot replace what it is losing.
+              The body <Highlight>cannot replace</Highlight> what it is losing.
             </>,
           ]}
           icon={Bone}
@@ -75,14 +75,14 @@ export default function Manifest() {
           paragraphs={[
             <>
               The intestinal lining normally renews every few days. In this
-              phase, it sheds and does not return.
+              phase, it sheds and <Highlight>does not return</Highlight>.
             </>,
             <>
               Severe diarrhea and fluid loss follow, while barrier failure allows
               gut bacteria to move freely.
             </>,
             <>
-              Self-sustaining GI bleeding can begin, driving the system toward
+              Self-sustaining GI bleeding can begin, driving the system <Highlight>toward</Highlight>
               collapse.
             </>,
           ]}
@@ -102,7 +102,7 @@ export default function Manifest() {
           }
           paragraphs={[
             <>
-              With basal stem cells destroyed, skin sloughs off like leaves from
+              With basal stem cells destroyed, skin <Highlight>sloughs off</Highlight> like leaves from
               a dying tree.
             </>,
             <>
@@ -110,7 +110,7 @@ export default function Manifest() {
               already imploding body.
             </>,
             <>
-              The body&apos;s strongest outer defense breaks down.
+              The body&apos;s <Highlight>strongest</Highlight> outer defense breaks down.
             </>,
           ]}
           icon={Shield}
@@ -135,7 +135,7 @@ export default function Manifest() {
               complicated by bleeding risk.
             </>,
             <>
-              Support can delay collapse, not reverse it.
+              Support can <Highlight>delay</Highlight> collapse, not reverse it.
             </>,
           ]}
           icon={Wind}
@@ -159,7 +159,7 @@ export default function Manifest() {
             </>,
             <>
               Renal failure follows as filtration can no longer keep pace with
-              tissue breakdown.
+              <Highlight>tissue breakdown</Highlight>.
             </>,
             <>
               Amputation may be considered, but bleeding risk and failed healing

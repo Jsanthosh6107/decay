@@ -10,6 +10,7 @@ import Death from "@/components/sections/Death";
 import ScrollDebug from "@/components/ui/scrollDebug";
 import NetworkBackground from "@/components/ui/BackgroundAnimated";
 import MainSiteAmbientAudio from "@/components/ui/MainSiteAmbientAudio";
+import ExposureBurstTrigger from "@/components/ui/ExposureBurstTrigger";
 
 export default function Page() {
   return (
@@ -18,6 +19,7 @@ export default function Page() {
       className="relative h-screen overflow-y-auto snap-y snap-mandatory overflow-x-hidden"
     >
       <MainSiteAmbientAudio />
+      <ExposureBurstTrigger />
       <NetworkBackground />
       <ScrollDebug />
       <Homeostasis />

@@ -38,7 +38,7 @@ export default function Carousel({
   return (
     <div className={cn("w-full", className)}>
       <div
-        className={cn("overflow-hidden", viewportClassName)}
+        className={cn("overflow-visible", viewportClassName)}
         ref={emblaRef}
       >
         <div className={cn("flex gap-6 pb-4", trackClassName)}>

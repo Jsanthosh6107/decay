@@ -211,7 +211,7 @@ export default function Homeostasis() {
           }
           paragraphs={[
             <>
-              Your body is a bustling city of cells, tissues, and organs, all working in harmony to keep you as a collective alive.
+              Your body is a bustling city of cells, tissues, and organs, all working in <Highlight>harmony</Highlight> to keep you as a collective alive.
             </>,
           ]}
           icon={Scale}
@@ -243,13 +243,13 @@ export default function Homeostasis() {
             </>
           }
           paragraphs={[
-            <>Organs are like infrastructure in a city.</>,
+            <>Organs are like <Highlight>infrastructure</Highlight> in a city.</>,
             <>
               They silently manufacture blood cells, hormones, enzymes, and
               tissue constantly.
             </>,
             <>
-              This unison allows the body to remain robust and functional.
+              This unison allows the body to remain <Highlight>robust</Highlight> and functional.
             </>,
           ]}
           icon={Cable}

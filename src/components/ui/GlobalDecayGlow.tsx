@@ -35,6 +35,9 @@ function getPerimeterBackground(visuals: DecayGlowVisuals, alphaScale = 1) {
 export default function GlobalDecayGlow() {
   const progress = useScrollStore((state) => state.progress);
   const glowDecayOverride = useScrollStore((state) => state.glowDecayOverride);
+  const isGlobalGlowPulseStopped = useScrollStore(
+    (state) => state.isGlobalGlowPulseStopped
+  );
   const prefersReducedMotion = useReducedMotion();
   const decay = glowDecayOverride ?? progress;
 
@@ -84,7 +87,10 @@ export default function GlobalDecayGlow() {
     };
   }, [visuals]);
 
-  const pulseEnabled = !prefersReducedMotion && visuals.pulseStrength > 0.001;
+  const pulseEnabled =
+    !prefersReducedMotion &&
+    !isGlobalGlowPulseStopped &&
+    visuals.pulseStrength > 0.001;
   const pulseAmplitude = visuals.pulseStrength * 0.014;
   const pulseOpacityPeak = visuals.glowOpacity * (0.22 + visuals.pulseStrength * 0.62);
   const pulseOpacitySecondary = pulseOpacityPeak * 0.6;

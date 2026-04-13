@@ -45,8 +45,7 @@ const prodromeTiles: SectionFeatureTile[] = [
     title: <>Severity Signal</>,
     copy: (
       <>
-        How quickly this starts matters. The shorter the delay, the more <Highlight>severe</Highlight>
-        the damage already is.
+        How quickly this starts matters. The shorter the delay, the more <Highlight>severe</Highlight> the damage already is.
       </>
     ),
     icon: Eye,
